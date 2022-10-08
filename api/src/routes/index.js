@@ -1,14 +1,20 @@
 const { Router } = require('express');
-const fetch = require('cross-fetch');
-
+const express = require("express");
+const videogamesRouter = require("./vidgeogame");
+const platformsRouter = require("./platforms");
+const {API_KEY} = process.env;
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
 
 //esto conecta las rutas
 
-const router = Router();
 
+
+const router = Router();
+router.use(express.json());
+router.use("/videogames", videogamesRouter);
+router.use("/platforms", platformsRouter);
 
 
 
