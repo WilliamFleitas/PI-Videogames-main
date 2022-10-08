@@ -21,7 +21,7 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
-
+// app esta requiriendo routes de nuestra ruta index, esto va a hacer que al hacer una consulta el server.use("/", routes); va a usar nuestro index de routes para responder
 server.use('/', routes);
 
 // Error catching endware.
