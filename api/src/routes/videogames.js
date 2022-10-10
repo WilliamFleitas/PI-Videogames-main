@@ -1,7 +1,7 @@
 const express = require("express");
 const { Sequelize, Op } = require('sequelize');
 const router = express.Router();
-const { getGames, gameId, } = require("./controllers");
+const { getGames, gameId, createGame, } = require("./controllers");
 
 router.get("/", async (req, res) => {
   try {
@@ -33,7 +33,7 @@ router.get("/:id", async (req, res) => {
     // console.log(id);
     const response = await gameId(id);
     const { name} = response;
-   console.log("holanda", response);
+   
    if(name === undefined){
     return res.status(400).send("no se encontro el juego")
    }
@@ -41,6 +41,32 @@ router.get("/:id", async (req, res) => {
   } catch (error) {
     res.status(400).send(error)
   }
+});
+
+router.post("/", async (req, res) => {
+  const {name, description, released, rating, background_image, genres, platforms} = req.body;
+  
+  try {
+    const response = await createGame(
+      name,
+      description,
+      released,
+      rating,
+      background_image,
+      genres,
+      platforms
+    );
+    if(response.name && response.description  && response.platforms && response.background_image){
+      return res.status(201).send(response);
+    }
+    else {
+      return res.status(404).send(response);
+    }
+
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+    
 });
 
 module.exports = router;
