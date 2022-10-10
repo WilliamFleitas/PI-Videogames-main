@@ -73,7 +73,7 @@ const gameId = async (id) => {
         description: responseApi.description,
         released: responseApi.released,
         rating: responseApi.rating,
-        platforms: responseApi.platforms,
+        platforms: responseApi.platforms.map((p) => p.platform.name).toString(),
       };
       return gameApiInfo;
   }
@@ -123,8 +123,46 @@ const getPlatforms = async () => {
   return platformsApi;
 };
 
+
+const createGame = async (name, description, released, rating, background_image, genres, platforms) => {
+  try {
+   
+    if(!name || !description  || !platforms || !background_image){
+        throw ("faltan datos para crear el juego");
+     }
+     
+     else {
+       const newGame = await Videogame.create({
+        
+          name,
+          description,
+          released,
+          rating,
+          background_image,
+          genres,
+          platforms
+        
+        
+       }); 
+       
+       const newGenre = await Genre.findAll({
+        where: {
+          name: genres,
+        },
+      });
+      
+       newGame.addGenre(newGenre);
+       return newGame;
+  
+    }
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getPlatforms,
   getGames,
   gameId,
+  createGame,
 };
