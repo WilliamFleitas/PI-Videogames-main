@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   //define sirve para crear un modelo para la tabla
   sequelize.define('videogame', {
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
@@ -20,15 +20,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    fecha_de_lanzamiento: {
+    released: {
       type: DataTypes.DATEONLY
     },
     rating: {
       type: DataTypes.FLOAT
     },
-    plataformas: {
+    platforms: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    background_image: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
    
   },
