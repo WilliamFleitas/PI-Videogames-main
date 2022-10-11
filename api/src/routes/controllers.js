@@ -160,9 +160,33 @@ const createGame = async (name, description, released, rating, background_image,
   }
 };
 
+const getGenres = async () => {
+   
+    
+ try {
+  const response = await fetch(`https://api.rawg.io/api/genres?key=${API_KEY}`).then(response => response.json())
+  .then(data => data );
+  
+  const genresApi = await response.results.map((e) => e.name);
+  const genreLength = await Genre.findAll();
+  if(!genreLength.length){
+    genresApi.map(e=> Genre.findOrCreate({
+      where: {name: e}
+    }))
+  }
+  const allGenres = await Genre.findAll();
+ 
+  return allGenres  
+
+ } catch (error) {
+   return error;
+ }
+};
+
 module.exports = {
   getPlatforms,
   getGames,
   gameId,
   createGame,
+  getGenres
 };
