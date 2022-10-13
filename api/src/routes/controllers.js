@@ -40,7 +40,7 @@ const getGames = async () => {
         }
       })
     const dbGamesInfo = await Videogame.findAll({
-      include: [
+      include: 
         {
           model: Genre,
           attributes: ["name"],
@@ -48,7 +48,6 @@ const getGames = async () => {
             attributes: [],
           },
         },
-      ],
     });
 
     const gamesInfo = apiGames.concat(dbGamesInfo);
@@ -138,7 +137,7 @@ const getPlatforms = async () => {
 };
 
 
-const createGame = async (name, description, released, rating, background_image, genres, platforms) => {
+const createGame = async (name, description, released, rating, background_image, Genres, platforms) => {
   try {
    
     if(!name || !description  || !platforms || !background_image){
@@ -153,7 +152,7 @@ const createGame = async (name, description, released, rating, background_image,
           released,
           rating,
           background_image,
-          genres,
+          Genres,
           platforms
         
         
@@ -161,7 +160,7 @@ const createGame = async (name, description, released, rating, background_image,
        
        const newGenre = await Genre.findAll({
         where: {
-          name: genres,
+          name: Genres,
         },
       });
       
