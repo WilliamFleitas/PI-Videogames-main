@@ -1,6 +1,7 @@
 const { Router, response } = require("express");
 const fetch = require("cross-fetch");
 const { Videogame, Genre } = require("../db");
+const e = require("express");
 const { API_KEY } = process.env;
 
 //apigameinfo trae 5 pag concatenadas de info sobre juegos
@@ -27,7 +28,17 @@ const getGames = async () => {
           .concat(data[4].results);
       }
     );
-
+      const apiGames = await apiGamesInfo.map((e) => {
+        return {
+          id: e.id,
+          name: e.name,
+          released: e.released,
+          background_image: e.background_image,
+          rating: e.rating,
+          platforms: e.platforms.map((p) => p.platform.name ),
+          genres: e.genres.map((g) => g.name),
+        }
+      })
     const dbGamesInfo = await Videogame.findAll({
       include: [
         {
@@ -40,7 +51,7 @@ const getGames = async () => {
       ],
     });
 
-    const gamesInfo = apiGamesInfo.concat(dbGamesInfo);
+    const gamesInfo = apiGames.concat(dbGamesInfo);
     
     const listGames = gamesInfo.map((nameG) => {
       return {
