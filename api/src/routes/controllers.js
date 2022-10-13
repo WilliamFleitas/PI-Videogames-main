@@ -8,8 +8,9 @@ const { API_KEY } = process.env;
 //gamesInfo concatena apigameinfo y dbgameinfo
 //listGames mapea toda la info dentro de GamesInfo y devuelve sus propiedades en un objeto
 const getGames = async () => {
+  // https://api.rawg.io/api/games?key=${API_KEY}`
   try {
-    const URL = `https://api.rawg.io/api/games?key=${API_KEY}`;
+    const URL = `https://api.rawg.io/api/games?key=3953db57b3654f38a111a955ab8ec520`;
     const promise1 = fetch(URL).then((response) => response.json());
     const promise2 = fetch(URL + "&page=2").then((response) => response.json());
     const promise3 = fetch(URL + "&page=3").then((response) => response.json());
@@ -18,6 +19,7 @@ const getGames = async () => {
     await Promise.all([promise1, promise2, promise3, promise4, promise5]).then(
       (data) => {
         data;
+        
         apiGamesInfo = data[0].results
           .concat(data[1].results)
           .concat(data[2].results)
@@ -31,7 +33,7 @@ const getGames = async () => {
         {
           model: Genre,
           attributes: ["name"],
-          through: {
+          throught: {
             attributes: [],
           },
         },
@@ -39,7 +41,7 @@ const getGames = async () => {
     });
 
     const gamesInfo = apiGamesInfo.concat(dbGamesInfo);
-
+    
     const listGames = gamesInfo.map((nameG) => {
       return {
         name: nameG.name,
@@ -51,6 +53,7 @@ const getGames = async () => {
         rating: nameG.rating,
       };
     });
+    
     return listGames;
   } catch (error) {
     return error.status(400);
