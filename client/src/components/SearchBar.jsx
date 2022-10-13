@@ -1,4 +1,4 @@
-import {getVideogamesName } from "../redux/actions/";
+import {getVideogamesName } from "../redux/actions/index";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -22,7 +22,7 @@ export const SearchBar = () => {
            
              <input type="text" onChange={(event) => handleInputChange(event)} placeholder = "Buscar juego por nombre" />
             
-             <button type="submit" onSubmit={(event) => handleSubmit(event)} >Buscar</button>
+             <button type="submit" onClick={(event) => handleSubmit(event)} >Buscar</button>
             
         </div>
     )
