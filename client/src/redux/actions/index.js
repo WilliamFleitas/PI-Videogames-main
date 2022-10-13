@@ -1,5 +1,6 @@
 export const VIDEO_GAMES = "VIDEO_GAMES";
 export const VIDEO_GAMES_NAME = "VIDEO_GAMES_NAME";
+export const SORT_BY_RATING = "SORT_BY_RATING";
 
 export const getVideogames = () => async (dispatch) => {
   try {
@@ -23,3 +24,10 @@ export const getVideogamesName = (name) => async (dispatch) => {
     return error;
   }
 };
+
+export const sortByRating = (payload) => {
+  return {
+    type: SORT_BY_RATING,
+    payload,
+  };
+}
