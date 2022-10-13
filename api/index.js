@@ -25,7 +25,7 @@ const { conn } = require('./src/db.js');
 // esto solo corre nuestro servidor
 // Syncing all the models at once..
 //el conn syncroniza nuestra database con el servidor levantado
-conn.sync({  }).then(() => {
+conn.sync({ }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
