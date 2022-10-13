@@ -184,7 +184,7 @@ const getGenres = async () => {
   const genreLength = await Genre.findAll();
   if(!genreLength.length){
     genresApi.map(e=> Genre.findOrCreate({
-      where: {name: e}
+      where: {name: e.name}
     }))
   }
   const allGenres = await Genre.findAll();
