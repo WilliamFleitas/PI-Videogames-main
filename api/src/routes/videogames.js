@@ -1,5 +1,5 @@
 const express = require("express");
-const { Sequelize, Op } = require('sequelize');
+
 const router = express.Router();
 const { getGames, gameId, createGame, } = require("./controllers");
 
@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   try {
     const { name } = req.query;
     const response = await getGames();
-
+       
     if (name) {
       
       const gameFilter = response.filter((e) =>
