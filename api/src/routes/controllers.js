@@ -61,6 +61,7 @@ const getGames = async () => {
         platforms: nameG.platforms,
         genres: nameG.genres,
         rating: nameG.rating,
+        createdInDb: nameG.createdInDb
       };
     });
     
