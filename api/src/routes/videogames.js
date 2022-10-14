@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
       );
 
       if (!gameFilter.length) {
-        return res.status(200).send(`Oppss! no se encontro el juego ${name}`);
+        return res.status(200).send(`Oppss! no se encontro el juego`);
       }
       return res.status(200).send(gameFilter);
     }
