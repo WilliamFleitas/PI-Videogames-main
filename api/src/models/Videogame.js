@@ -24,7 +24,11 @@ module.exports = (sequelize) => {
       type: DataTypes.DATEONLY
     },
     rating: {
-      type: DataTypes.FLOAT
+      type: DataTypes.FLOAT,
+      validate: {
+        min: 1.0,
+        max: 5,
+      }
     },
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
@@ -33,6 +37,11 @@ module.exports = (sequelize) => {
     background_image: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    createdInDb:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     }
    
   },
