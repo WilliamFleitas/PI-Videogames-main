@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {useDispatch} from 'react-redux';
 
 
-export const VideoGameCard = ({name, image, genres, released, platforms, id }) => {
+export const VideoGameCard = ({name, image, genres, released, platforms, id, createdInDb }) => {
 
 
     const dispatch = useDispatch();
@@ -17,6 +17,7 @@ export const VideoGameCard = ({name, image, genres, released, platforms, id }) =
             <h4>Genres: {genres}</h4>
             <h5>Released: {released}</h5>
             <h6>Patforms: {platforms}</h6>
+            
             
             </div> 
         </div>
