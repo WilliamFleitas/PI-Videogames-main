@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { SearchBar } from "./SearchBar";
-import { getVideogames, sortByRating, filterCreatedGame} from "../redux/actions/index";
+import { getVideogames, sortByRating, filterCreatedGame, orderByName, getByGenres, filterByGenres} from "../redux/actions/index";
 import { VideoGameCard } from "./VideoGameCard";
 import Paginado from "./paginado/Paginado.jsx";
 import img404 from "../imagenes/img404.jpg";
 const Home = (props) => {
   const dispatch = useDispatch();
   const allGames = useSelector((state) => state.listGames);
+  const allGenres = useSelector((state) => state.listGenres);
 
+  const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage, setGamesPerPage] = useState(15);
   const indexOfLastGame = currentPage * gamesPerPage; 
@@ -22,20 +24,44 @@ const Home = (props) => {
 
   useEffect(() => {
     dispatch(getVideogames());
+    dispatch(getByGenres());
   }, [dispatch]);
 
   const handleClick = (event) => {
     event.preventDefault();
-    dispatch(getVideogames);
+    dispatch(getVideogames());
+  };
+  
+  const handleFilterGenres = (event) => {
+    event.preventDefault();
+    if(event.target.value === "Generos"){
+      dispatch(getVideogames());
+    }
+    else{
+      dispatch(filterByGenres(event.target.value));
+      setCurrentPage(1);
+      setOrden(`Ordenado ${event.target.value}`);
+    }
   };
 
   const handleSortByRating = (event) => {
     event.preventDefault();
     dispatch(sortByRating(event.target.value));
+    setCurrentPage(1);
+    setOrden(`Ordenado ${event.target.value}`);
   };
-
+  
+  const handleSortByName = (event) => {
+    event.preventDefault();
+    dispatch(orderByName(event.target.value));
+    setCurrentPage(1);
+    setOrden(`Ordenado ${event.target.value}`); //sin esto la pag no se vuelve a renderizar
+  };
+ // handlefilter es el manejador despacha el target.value(el value viene de las options que son existente, creadoindb y all) que viene de nuestro select a nuestro action, esa action manda un type que va a ser el value como payload a nuestro reducer, el reducer recibe la action type y dependiendo del payload que le llega filtra los juegos
+ //el setCurrenpage(1) esta para que al apretar el boton el paginado vuelva a la pag 1 siempre
   const handleFilterCreated = (event) => {
-      dispatch(filterCreatedGame(event.target.value))
+      dispatch(filterCreatedGame(event.target.value));
+      setCurrentPage(1);
   }
 
   return (
@@ -57,7 +83,7 @@ const Home = (props) => {
 
       <div className="divFiltrados">
 
-        <select name="selectAscDesc" id="adf" key="adf">
+        <select onChange={(event) => handleSortByName(event)}>
 
           <option  value="asc">Ascendente</option>
 
@@ -65,11 +91,22 @@ const Home = (props) => {
 
         </select>
 
-        <select name="selectRat" key="selectRat" onChange={(event) => handleSortByRating(event)}>
+        <select onChange={(event) => handleFilterGenres(event)}>
+          <option>Generos</option>
+          {
+            allGenres?.map((g) => {
+              return (
+                <option key={g.id} value={g.name} >{g.name}</option>
+              )
+            })
+          }
+        </select>
 
-          <option key="bestrt" value="bestrt">Best Rating</option>
+        <select  onChange={(event) => handleSortByRating(event)}>
 
-          <option key="worstrt" value="worstrt"> Worst Rating</option>
+          <option  value="bestrt">Best Rating</option>
+
+          <option  value="worstrt"> Worst Rating</option>
 
         </select>
         
