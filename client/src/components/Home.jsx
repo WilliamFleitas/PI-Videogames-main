@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { SearchBar } from "./SearchBar";
-import { getVideogames, sortByRating, filterCreatedGame, orderByName, getByGenres, filterByGenres} from "../redux/actions/index";
+import { getVideogames, sortByRating, filterCreatedGame, orderByName, filterByGenres} from "../redux/actions/index";
+import FilterBar from "../components/filtros/Filters"
 import { VideoGameCard } from "./VideoGameCard";
 import Paginado from "./paginado/Paginado.jsx";
 import img404 from "../imagenes/img404.jpg";
 const Home = (props) => {
+
   const dispatch = useDispatch();
+
   const allGames = useSelector((state) => state.listGames);
-  const allGenres = useSelector((state) => state.listGenres);
 
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,18 +26,19 @@ const Home = (props) => {
 
   useEffect(() => {
     dispatch(getVideogames());
-    dispatch(getByGenres());
   }, [dispatch]);
 
   const handleClick = (event) => {
     event.preventDefault();
     dispatch(getVideogames());
+    setCurrentPage(1);
   };
   
   const handleFilterGenres = (event) => {
     event.preventDefault();
     if(event.target.value === "Generos"){
       dispatch(getVideogames());
+      setCurrentPage(1);
     }
     else{
       dispatch(filterByGenres(event.target.value));
@@ -69,7 +72,7 @@ const Home = (props) => {
       <div className="searchBarDiv">
         <SearchBar />
       </div>
-
+      
       <h1 className="tituloHome">hola: Ruta HomePage es la ruta principal</h1>
 
       <button
@@ -80,43 +83,14 @@ const Home = (props) => {
       >
         Recargar personajes
       </button>
-
+      
+      <div className="filtrados">
+      <FilterBar handleSortByName={handleSortByName} handleFilterGenres={handleFilterGenres}
+      handleSortByRating={handleSortByRating}
+      handleFilterCreated={handleFilterCreated}
+      ></FilterBar>
+      </div>
       <div className="divFiltrados">
-
-        <select onChange={(event) => handleSortByName(event)}>
-
-          <option  value="asc">Ascendente</option>
-
-          <option  value="desc">Descendente</option>
-
-        </select>
-
-        <select onChange={(event) => handleFilterGenres(event)}>
-          <option>Generos</option>
-          {
-            allGenres?.map((g) => {
-              return (
-                <option key={g.id} value={g.name} >{g.name}</option>
-              )
-            })
-          }
-        </select>
-
-        <select  onChange={(event) => handleSortByRating(event)}>
-
-          <option  value="bestrt">Best Rating</option>
-
-          <option  value="worstrt"> Worst Rating</option>
-
-        </select>
-        
-        <select onChange={(event) => handleFilterCreated(event)}>
-            
-            <option value="All">Todos</option>
-            <option value="createdInDb">Creados</option>
-            <option value="api">Existentes</option>
-
-        </select>
         <Paginado gamesPerPage={gamesPerPage} allGames={allGames.length} paginado={paginado} />
 
         {

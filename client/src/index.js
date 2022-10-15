@@ -9,9 +9,9 @@ import  store  from '../src/redux/store/index.js'
 //este es mi domvirtual, aca renderizamos las cosas sin afectar al dom real
 ReactDOM.render(
   <Provider store={store}>
-   {/* <BrowserRouter> */}
+   <BrowserRouter>
     <App />
-  {/* </BrowserRouter> */}
+  </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

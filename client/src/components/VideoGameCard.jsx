@@ -1,11 +1,9 @@
-import React,{useState} from 'react';
-import {useDispatch} from 'react-redux';
+import React from 'react';
 
 
 export const VideoGameCard = ({name, image, genres, released, platforms, id, createdInDb }) => {
 
 
-    const dispatch = useDispatch();
     
 
     return (
