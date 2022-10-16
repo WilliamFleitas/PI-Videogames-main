@@ -6,6 +6,8 @@ import {
   ORDER_BY_NAME,
   GET_BY_GENRE,
   FILTER_BY_GENRES,
+  CREATED_GAME,
+  GET_PLATFORMS,
 } from "../actions/index";
 
 const initialState = {
@@ -13,7 +15,8 @@ const initialState = {
   videogamesF: [],
   listGenres: [],
   platforms: [],
-  videogameId: [],
+  
+  
 };
 
 function rootReducer(state = initialState, action) {
@@ -29,6 +32,19 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         listGames: action.payload,
+      };
+    case CREATED_GAME:
+      
+      return {
+        ...state,
+        
+      };
+
+    case GET_PLATFORMS:
+      
+      return {
+        ...state,
+        platforms: action.payload
       };
 
     case GET_BY_GENRE:
