@@ -1,7 +1,5 @@
-const { Router, response } = require("express");
 const fetch = require("cross-fetch");
 const { Videogame, Genre } = require("../db");
-const e = require("express");
 const { API_KEY } = process.env;
 
 //apigameinfo trae 5 pag concatenadas de info sobre juegos
@@ -182,12 +180,12 @@ const getGenres = async () => {
   .then(data => data );
   
   const genresApi = await response.results.map((e) => e.name);
-  const genreLength = await Genre.findAll();
-  if(!genreLength.length){
+  
+  
     genresApi.map(e=> Genre.findOrCreate({
-      where: {name: e.name}
+      where: {name: e}
     }))
-  }
+  
   const allGenres = await Genre.findAll();
  
   return allGenres  
