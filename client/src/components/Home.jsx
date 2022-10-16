@@ -65,7 +65,7 @@ const Home = (props) => {
   const handleFilterCreated = (event) => {
       dispatch(filterCreatedGame(event.target.value));
       setCurrentPage(1);
-  }
+  }; //handlefiltercreated es para el filtro de los juegos creados en db
 
   return (
     <div className="homeDiv">
