@@ -3,6 +3,9 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/LandingPage"
 import Home from "./components/Home";
+import GameCreate from './components/GameCreate';
+
+
 
 function App() {
   return (
@@ -12,6 +15,8 @@ function App() {
         
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/home" component={Home}/>
+        <Route exact path="/creategame" component={GameCreate}/>
+       
       </Switch>
     </div>
     </BrowserRouter>
