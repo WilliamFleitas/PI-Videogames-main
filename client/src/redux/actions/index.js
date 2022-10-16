@@ -10,6 +10,7 @@ export const GET_BY_GENRE = "GET_BY_GENRE";
 export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
 export const CREATED_GAME = "CREATED_GAME";
 export const GET_PLATFORMS = "GET_PLATFORMS";
+export const GET_DETAILS = "GET_DETAILS";
 
 export const getVideogames = () => async (dispatch) => {
   try {
@@ -22,6 +23,21 @@ export const getVideogames = () => async (dispatch) => {
     console.log(error)
     return error;
   }
+};
+
+export const getDetail = (id) => async (dispatch) => {
+      try {
+        const response = await fetch(`http://localhost:3001/videogames/${id}`);
+        const data = await response.json();
+        console.log(data);
+        
+         return dispatch({
+          type: GET_DETAILS,
+          payload: data,
+         })
+      } catch (error) {
+        return error;
+      }
 };
 
 export const getPlatform = () => async (dispatch) => {

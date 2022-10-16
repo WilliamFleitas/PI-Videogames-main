@@ -7,6 +7,7 @@ import FilterBar from "../components/filtros/Filters"
 import { VideoGameCard } from "./VideoGameCard";
 import Paginado from "./paginado/Paginado.jsx";
 import img404 from "../imagenes/img404.jpg";
+import { NavLink } from "react-router-dom";
 const Home = (props) => {
 
   const dispatch = useDispatch();
@@ -96,7 +97,10 @@ const Home = (props) => {
         {
           currentGames?.map((e) => {
             return (
-              <VideoGameCard
+
+              <div key={e.id}>
+                <NavLink to={`/videogames/` + e.id}>
+                <VideoGameCard
                 key={e.id}
                 id={e.id}
                 name={e.name}
@@ -110,6 +114,8 @@ const Home = (props) => {
                   ?.map((e) => (typeof e === "object" ? e.name : e))
                   .join(", ")}
               />
+                </NavLink>
+              </div>
             );
           })}
       </div>
