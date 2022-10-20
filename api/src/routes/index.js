@@ -3,7 +3,7 @@ const express = require("express");
 const videogamesRouter = require("./videogames");
 const platformsRouter = require("./platforms");
 const genresRouter = require("./genres");
-const {API_KEY} = process.env;
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
