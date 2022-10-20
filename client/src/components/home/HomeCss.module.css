@@ -1,0 +1,23 @@
+
+.homediv {
+  background-color: black;
+ 
+ background-size:contain;
+
+
+ 
+}
+
+.navLink {
+  text-decoration: none;
+      list-style: none;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5px;
+  margin: 10px;
+ 
+}  
+

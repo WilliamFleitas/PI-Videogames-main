@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LandingPage from "./components/LandingPage"
-import Home from "./components/Home";
-import GameCreate from './components/GameCreate';
-import GameDetail from './components/GameDetail';
+import LandingPage from "./components/landingpage/LandingPage"
+import Home from "./components/home/Home";
+import GameCreate from './components/gamecreate/GameCreate';
+import GameDetail from './components/gamedetail/GameDetail';
 
 
 

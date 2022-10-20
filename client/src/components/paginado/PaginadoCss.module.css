@@ -1,0 +1,10 @@
+.paginado {
+    display: inline-flex;
+    flex-direction: row;
+    list-style: none;
+  
+  }
+
+.paginado button {
+    margin: 10px;
+}

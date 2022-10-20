@@ -70,7 +70,7 @@ export const getVideogamesName = (name) => async (dispatch) => {
   try {
     const response = await fetch(`http://localhost:3001/videogames?name=${name}`);
     const data = await response.json();
-    
+   
     return dispatch({ type: VIDEO_GAMES_NAME, payload: data });
   } catch (error) {
     console.log(error)
