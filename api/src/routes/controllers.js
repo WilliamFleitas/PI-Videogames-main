@@ -9,7 +9,7 @@ const { API_KEY } = process.env;
 const getGames = async () => {
   // https://api.rawg.io/api/games?key=${API_KEY}`
   try {
-    const URL = `https://api.rawg.io/api/games?key=3953db57b3654f38a111a955ab8ec520`;
+    const URL = `https://api.rawg.io/api/games?key=${API_KEY}`;
     const promise1 = fetch(URL).then((response) => response.json());
     const promise2 = fetch(URL + "&page=2").then((response) => response.json());
     const promise3 = fetch(URL + "&page=3").then((response) => response.json());
