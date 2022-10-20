@@ -14,12 +14,9 @@ router.get("/", async (req, res) => {
         e.name.toLowerCase().includes(name.toLowerCase())
       );
 
-      if (!gameFilter.length) {
-        return res.status(200).send(`Oppss! no se encontro el juego`);
-      }
       return res.status(200).send(gameFilter);
     }
-
+  
     res.status(200).send(response);
     
   } catch (error) {
@@ -30,7 +27,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const {id} = req.params;  
-    // console.log(id);
+    
     const response = await gameId(id);
     const { name} = response;
    
