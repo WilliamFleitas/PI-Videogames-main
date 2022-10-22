@@ -81,7 +81,7 @@ const GameCreate = () => {
     event.preventDefault();
     let noRepeat = nameList.filter((n) => n.name === input.name);
     if(noRepeat.length){
-        alert("Ya existe un juego con ese nombre")
+        alert("Ya existe un juego con ese nombre");
         errors.name = "Ya existe un juego con ese nombre";
     }else {
         let error = Object.keys(validate(input));
@@ -231,15 +231,15 @@ const GameCreate = () => {
             )
           }
         </div>
-
+        
         <div>
           <label>Plataformas: </label>
           <select onChange={(event) => handlePlatform(event)}>
             <option value="all">All</option>
-            {allPlatforms.results?.map((p) => {
+            {allPlatforms?.map((p) => {
               return (
-                <option key={p.id} value={p.name}>
-                  {p.name}
+                <option key={p} value={p}>
+                  {p}
                 </option>
               );
             })}

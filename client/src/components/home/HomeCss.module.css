@@ -1,13 +1,27 @@
-
-.homediv {
-  background-color: black;
- 
- background-size:contain;
-
-
+body {
+  background: linear-gradient(rgba(6, 0, 10, 0.747), rgba(6, 0, 10, 0.747)),
+  url("../../imagenes/BannerXhii.png")
+    center ;
+ background-size: fill;
+ display: absolute;
  
 }
 
+
+.searchBarDiv {
+  
+  background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
+  padding:30px 0px 25px 30px;
+  margin: 0px 0px 0px 0px;
+  border: 2px outset rgba(56, 3, 117, 0.582);
+  
+}
+
+.searchBar {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+}
 .navLink {
   text-decoration: none;
       list-style: none;

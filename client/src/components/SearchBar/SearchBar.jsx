@@ -1,6 +1,7 @@
 import {getVideogamesName } from "../../../src/redux/actions/index";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import s from "../SearchBar/searchBar.module.css"
 
  export const SearchBar = () => {
  
@@ -18,11 +19,11 @@ import { useDispatch } from "react-redux";
         }
 
     return (
-        <div className="searchbar">
+        <div className={s.container}>
            
-             <input type="text" onChange={(event) => handleInputChange(event)} placeholder = "Buscar juego por nombre" />
+             <input className={s.inputs} type="text" onChange={(event) => handleInputChange(event)} placeholder = "Buscar juego por nombre" />
             
-             <button type="submit" onClick={(event) => handleSubmit(event)} >Buscar</button>
+             <button className={s.buttons} type="submit" onClick={(event) => handleSubmit(event)} >Buscar</button>
             
         </div>
     )

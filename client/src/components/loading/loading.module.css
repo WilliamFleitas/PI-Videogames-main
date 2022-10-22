@@ -1,0 +1,36 @@
+
+
+.divContainer {
+    width: 100%;
+    height: 100vh;
+    background: 
+    url("../../imagenes/loading.jpg")
+      center no-repeat;
+    background-size: cover;
+   display: absolute;
+}
+
+.load {
+  height: 100vh;
+  
+  text-align: center;
+  image-resolution: 10%;
+  margin: 0px ;
+  padding: 0px;
+  
+  place-items: center;
+  background: linear-gradient(rgba(38, 3, 133, 0.842), rgba(57, 3, 100, 0.76));
+     
+}
+
+.img {
+  height: 10%;
+  display: absolute;
+  align-items: center;
+  place-items: center;
+  padding: 230px 0px 200px 5px;
+  margin: 230px 0px 200px 5px;
+  place-items: center;
+  
+    
+}

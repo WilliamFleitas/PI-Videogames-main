@@ -73,7 +73,7 @@ const Home = (props) => {
   }; //handlefiltercreated es para el filtro de los juegos creados en db
   if(carga){
     return (
-      <div>
+      <div className={s.cargaDiv}>
         <Loading/>
       </div>
     )
@@ -81,11 +81,10 @@ const Home = (props) => {
 
   return (
     <div className={s.homediv}>
-      <div className={"searchBarDiv"}>
-        <SearchBar />
+      <div className={s.searchBarDiv}>
+        <SearchBar className={s.searchBar} />
       </div>
       
-      <h1 className="tituloHome">hola: Ruta HomePage es la ruta principal</h1>
 
       <button
         className="buttonGameL"

@@ -1,12 +1,15 @@
 import React from "react";
 import loading from "../../videos/loading.mp4";
-
+import s from "../loading/loading.module.css";
+import load from "../../imagenes/loadcat.gif";
 const Loading =  () =>  {
  
     return (
-        <div>
-            <video src={loading}/>
-            <h1>Cargando...</h1>
+        <div className={s.divContainer}>
+          <div className={s.load}>
+            <img className={s.img} src={load} />
+          </div>
+           
             
         </div>
     )

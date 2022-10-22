@@ -20,7 +20,7 @@
 .buttonDiv {
     display: flex;
     justify-content: center;
-    margin:  25vh 0px 20px 0px;
+    margin:  330px 0px 0px 0px;
 }
 .button {
     padding: 100px;
@@ -40,29 +40,31 @@
 
 
  .giticon{
-  display: flex;
   position: absolute;
-  height: 5%;
-  width: 3%;
-  margin-left: 128rem;
-  margin-bottom: px;
-  margin-top: -69px;
+  
+  height: 4.1%;
+  width: 3.5%;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  margin-top: 1072px;
+  
  }
 
  .linkicon{
-  display: flex;
   position: absolute;
-  height: 4.9%;
-  width: 3%;
-  margin-left: 123rem;
-  margin-bottom: px;
-  margin-top: -67px;
+ 
+  height: 3.9%;
+  width: 3.4%;
+  margin-left: -85px;
+  margin-bottom: 5px;
+  margin-top: 1075px;
+  
  }
 
   .text {
     font-family: 'Press Start 2P', cursive;
-    text-align: start;
-    padding: 15px 15px 30px 20px;
+    text-align: center;
+    padding: 15px 15px 30px 28px;
     font-size: 30px;
     background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
     
@@ -87,4 +89,141 @@
     7px 7px 1px #080808,
     7px 7px 0px #201f20,
     7px 8px 0px #757172;
+
+    
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .giticon{
+      position: absolute;
+      
+      height: 5%;
+      width: 4.6%;
+      margin-left: 270px;
+      margin-bottom: 5px;
+      margin-top: 500px;
+      
+     }
+    
+     .linkicon{
+      position: absolute;
+     
+      height: 4.8%;
+      width: 4.7%;
+      margin-left: -305px;
+      margin-bottom: 5px;
+      margin-top: 500px;
+      
+     }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .giticon{
+      position: absolute;
+      
+      height: 5%;
+      width: 4.6%;
+      margin-left: 55px;
+      margin-bottom: 5px;
+      margin-top: 100px;
+      
+     }
+    
+     .linkicon{
+      position: absolute;
+     
+      height: 4.8%;
+      width: 4.7%;
+      margin-left: -55px;
+      margin-bottom: 5px;
+      margin-top: 100px;
+      
+     }
+  }
+  @media only screen and (max-height: 1200px) {
+    .giticon{
+      position: absolute;
+      
+      height: 5%;
+      width: 4.6%;
+      margin-left: 50px;
+      margin-bottom: 5px;
+      margin-top: 800px;
+      
+     }
+    
+     .linkicon{
+      position: absolute;
+     
+      height: 4.8%;
+      width: 4.7%;
+      margin-left: -105px;
+      margin-bottom: 5px;
+      margin-top: 800px;
+      
+     }
+     .buttonDiv {
+      display: flex;
+      justify-content: center;
+      margin:  330px 0px 0px 0px;
+  }
+  .button {
+      padding: 100px;
+      margin: 100px;
+      
+      cursor: pointer;
+      outline: none;
+      background: 
+      url("../../imagenes/start.gif")
+        center no-repeat;
+      background-size: contain;
+      background-position: start;
+      display: inline-flex;
+      position: center;
+  
+    }
+  }
+
+  @media only screen and (max-height: 950px) {
+    .giticon{
+      position: absolute;
+      
+      height: 5%;
+      width: 4.6%;
+      margin-left: 50px;
+      margin-bottom: 5px;
+      margin-top: 580px;
+      
+     }
+    
+     .linkicon{
+      position: absolute;
+     
+      height: 4.8%;
+      width: 4.7%;
+      margin-left: -105px;
+      margin-bottom: 5px;
+      margin-top: 580px;
+      
+     }
+     .buttonDiv {
+      display: flex;
+      justify-content: center;
+      margin:  330px 0px 0px 0px;
+  }
+  .button {
+      padding: 100px;
+      margin: -100px;
+      
+      cursor: pointer;
+      outline: none;
+      background: 
+      url("../../imagenes/start.gif")
+        center no-repeat;
+      background-size: contain;
+      background-position: start;
+      display: inline-flex;
+      position: center;
+  
+    }
   }

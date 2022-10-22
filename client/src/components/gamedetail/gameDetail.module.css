@@ -1,0 +1,302 @@
+.containerPadre{
+    min-height: 100vh;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.containerButton{
+    display: flex;
+    justify-content: center;
+    margin: 80px;
+    padding: 0px 500px 0px 0px;
+    
+}
+
+.containerDelete {
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 0px 0px;
+}
+
+.containerCrearJuego{
+  display: flex;
+  justify-content: center;
+  margin: -121px 0px 105px 0px;
+  padding: 0px 0px 0px 500px;
+}
+
+.containerMain{
+    margin: 0px auto 100px auto;
+    width: 80%;
+    height: 60vh;
+    display: flex;
+    border: 5px outset rgba(22, 2, 59, 0.397);
+   
+}
+
+
+.containerImg{
+    height: auto;
+   width: 50%;
+   background-size: cover;
+   background-position: center;
+   border: 5px outset rgb(2, 0, 5);
+   
+}
+
+
+.containerTextDescrip{
+    width: 50%;
+   
+    background: linear-gradient(rgba(21, 3, 88, 0.911), rgba(57, 1, 78, 0.918)),
+  url("../../imagenes/cyberpunk-ponpon.gif")
+    center no-repeat;
+    background-size: cover;
+    border: 5px outset rgb(2, 0, 5);
+    padding: 20px 20px 15px 20px;
+    
+    overflow: scroll;
+    
+    
+    color: #fffeff;
+  text-shadow:
+    1px 1px 2px #a9a0aa,
+    1px 1px 2px #a89fa7,
+    2px 2px 3px #d6d0d0,
+    2px 2px 3px #c7bfbf,
+    3px 3px 2px #040203,
+    3px 3px 2px #c599c5,
+    4px 4px 2px #c599c5,
+    4px 4px 3px #c599c5,
+    4px 4px 3px #c599c5,
+    4px 5px 2px #c599c5,
+    5px 5px 2px #050505,
+    5px 5px 2px #000000,
+    5px 5px 1px #696363,
+    5px 5px 1px #080808,
+    5px 5px 0px #201f20,
+    5px 5px 0px #757172;
+}
+
+.containerTextDescrip::-webkit-scrollbar {
+  width: 0.5em;
+}
+ 
+.containerTextDescrip::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.103);
+}
+ 
+.containerTextDescrip::-webkit-scrollbar-thumb {
+  background-color: rgba(44, 2, 56, 0.774);
+  outline: 1px outset rgb(66, 1, 82);
+}
+
+
+
+
+
+
+.header{
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+}
+
+.nameDiv {
+    padding: 20px 0px 20px 0px;
+    color: #31023a80;
+  text-shadow:
+    1px 2px 0px #a9a0aa,
+    1px 2px 0px #a89fa7,
+    1px 2px 51px #d6d0d0,
+    2px 3px 1px #c7bfbf,
+    2px 3px 2px #040203,
+    2px 4px 52px #c599c5,
+    3px 5px 2px #c599c5,
+    3px 5px 3px #c599c5,
+    3px 5px 3px #c599c5,
+    5px 6px 2px #c599c5,
+    6px 6px 2px #050505,
+    7px 6px 2px #000000,
+    7px 7px 1px #696363,
+    7px 7px 1px #080808,
+    7px 7px 0px #201f20,
+    7px 8px 0px #757172;
+
+}
+
+.containerImgDescrep{
+    width: 80%;
+    height: 70vh;
+    display: flex; 
+    
+    flex-wrap: wrap;
+}
+
+.containerGenPlat {
+    border: 5px solid rgba(1, 1, 1, 0.8);
+
+    padding: 15px 5px 0px 10px ;
+    text-align: start;
+    line-height : 45px;
+    background: linear-gradient(rgba(1, 1, 1, 0.8), rgba(1, 1, 1, 0.8));
+}
+
+
+.descriptionText{
+    padding: 10px;
+    margin-top: 2rem;
+    text-justify:distribute;
+    border: 5px solid rgba(1, 1, 1, 0.8);
+   text-align: start;
+   line-height : 35px;
+   background: linear-gradient(rgba(1, 1, 1, 0.8), rgba(1, 1, 1, 0.8));
+    width: auto;
+	height: 340px;
+	overflow-y: scroll;
+  overflow-x: hidden;
+}
+.descriptionText::-webkit-scrollbar {
+    width: 0.5em;
+  }
+   
+  .descriptionText::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+.descriptionText::-webkit-scrollbar-thumb {
+    background-color: rgba(44, 2, 56, 0.774);
+    outline: 1px outset rgb(66, 1, 82);
+  }
+
+.ratingAndReleased{
+    padding: 10px;
+    margin-top: 1rem;    
+    display: flex;
+    justify-content: space-between;
+    border: 5px solid rgba(1, 1, 1, 0.8);
+   text-align: start;
+   line-height : 25px;
+   background: linear-gradient(rgba(1, 1, 1, 0.8), rgba(1, 1, 1, 0.8));
+}
+
+
+.detailButton {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 12px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+    
+    text-decoration: none;
+   }
+   
+   .detailButton::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   .detailButton:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   .detailButton:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+   .tittle{
+    border-bottom: 1px solid white;
+    margin-bottom: 0.5em;
+   }
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.buttonDel {
+  
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 12px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  
+  text-decoration: none;
+}
+
+.buttonDel::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+ }
+ 
+ .buttonDel:hover {
+  color: var(--btn-color);
+  background-color: rgb(107, 8, 77);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 2em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+ }
+ 
+ .buttonDel:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+         0 0 2.5em 2em var(--glow-spread-color),
+         inset 0 0 .5em .25em var(--glow-color);
+ }

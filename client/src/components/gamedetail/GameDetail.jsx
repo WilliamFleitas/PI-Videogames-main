@@ -1,54 +1,104 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../../redux/actions";
-import img404 from "../../imagenes/img404.jpg"
-import {NavLink} from "react-router-dom";
-
+import { getDetail, deleteGame } from "../../redux/actions";
+import img404 from "../../imagenes/img404.jpg";
+import { NavLink, useHistory } from "react-router-dom";
+import Loading from "../loading/Loading"
+import s from "../gamedetail/gameDetail.module.css";
 const GameDetail = (props) => {
-    const [carga, setCarga] = useState(true);
+  const [carga, setCarga] = useState(true);
 
+  const dispatch = useDispatch();
+  const detail = useSelector((state) => state.gameDetail);
+  const history = useHistory();
 
-const dispatch = useDispatch();
-const detail = useSelector((state) => state.gameDetail);
-
-
-useEffect(() => {
+  useEffect(() => {
     dispatch(getDetail(props.match.params.id)).then(() => setCarga(false));
-}, [dispatch,]);
+  }, [dispatch]);
 
-if (carga){
-    return "cargando";
-}
+  const handleDelete = (event) => {
+    event.preventDefault();
+    dispatch(deleteGame(props.match.params.id));
+    alert("Juego eliminado");
+    history.push("/home");
+  };
+  console.log(detail);
 
+  if (carga) {
+    return (
+     <Loading/>   
+    )
+  }
 
+  var regex = /(<([^#$>]+)>)/gi;
 
+  return (
+    <div className={s.containerPadre}>
+      <div className={s.containerButton}>
+        <NavLink className={s.detailButton} to={"/home"}>
+          Volver al Home
+        </NavLink>
+      </div>
 
-var regex = /(<([^>]+)>)/gi;
+      <div className={s.containerCrearJuego}>
+        <NavLink className={s.detailButton} to={"/creategame"}>
+          Crear un juego
+        </NavLink>
+      </div>
 
-console.log("hola", detail);
+      <div className={s.containerMain} key={detail.id}>
+        <div
+          className={s.containerImg}
+          key={detail.id}
+          style={{
+            backgroundImage: `url(${
+              detail.image ? detail.image : detail.background_image
+            })`,
+          }}
+        >
+          {/* <img
+            src={detail.image ? detail.image : detail.background_image}
+            alt={`${detail.name}`}
+          /> */}
+        </div>
+        <div className={s.containerTextDescrip}>
+            <div className={s.nameDiv}>
+            <h1>{detail.name}</h1>
+            </div>
+           
 
-return (
-    <div>
-        
-            <div key={detail.id}> 
-                <div key={detail.id}> 
-                <img src={detail.image? detail.image : detail.background_image} alt={`${detail.name}`}/>
-                </div>
-                <h1>Nombre: {detail.name}</h1>
-                <p>Rating: {detail.rating}</p>
-                <div>
-                <p>Generos: {detail.genres?.map((e) =>  e.name).join(', ')}</p>
-                <p>Plataformas: {typeof detail.platforms === "object" ? detail.platforms.map((e) => e.name) : detail.platforms.split(",").join(", ")}</p>
-                </div>
-                
-                <p>Fecha de lanzamiento: {detail.released}</p>
-                <p>Descripción: {detail.description?.replace(regex, '').replace('&#39', '')}</p>
-                
-            </div> : 
-             
-        
-         <NavLink to={"/home"}>Volver al Home</NavLink>
+          <div className={s.containerGenPlat}>
+           
+            <p>Generos: {detail.genres?.map((e) => e.name).join(", ")}</p>
+            <p>
+              Plataformas:{" "}
+              {typeof detail.platforms === "object"
+                ? detail.platforms.map((e) => e.name)
+                : detail.platforms.split(",").join(", ")}
+            </p>
+          </div>
+
+          <div className={s.ratingAndReleased}>
+            <p>Rating: {detail.rating}</p>
+            <p>Fecha de lanzamiento: {detail.released}</p>
+          </div>
+
+          <div className={s.descriptionText}>
+            <p>
+              Descripción:
+              {detail.description?.replace(regex, " ").replace(" ", " ")}
+            </p>
+          </div>
+        </div>
+      </div>
+          
+        {
+            detail.createInDb? <div className={s.containerDelete}> 
+            <button className={s.buttonDel} onClick={(event) => handleDelete(event)}>Eliminar juego</button>
+          </div> : <div></div>
+        } 
+      
     </div>
-)
+  );
 };
 export default GameDetail;

@@ -9,6 +9,7 @@ import {
   CREATED_GAME,
   GET_PLATFORMS,
   GET_DETAILS,
+  DELETE_GAME,
 } from "../actions/index";
 import img404 from "../../imagenes/img404.jpg";
 
@@ -36,6 +37,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         listGames: action.payload,
       };
+    
+    case DELETE_GAME:
+      return {
+        ...state
+      }
     case CREATED_GAME:
       
       return {

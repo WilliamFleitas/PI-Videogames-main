@@ -11,6 +11,7 @@ export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
 export const CREATED_GAME = "CREATED_GAME";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_DETAILS = "GET_DETAILS";
+export const DELETE_GAME = "DELETE_GAME";
 
 export const getVideogames = () => async (dispatch) => {
   try {
@@ -29,7 +30,7 @@ export const getDetail = (id) => async (dispatch) => {
       try {
         const response = await fetch(`http://localhost:3001/videogames/${id}`);
         const data = await response.json();
-        console.log(data);
+       
         
          return dispatch({
           type: GET_DETAILS,
@@ -40,14 +41,29 @@ export const getDetail = (id) => async (dispatch) => {
       }
 };
 
+export const deleteGame = (id) => async (dispatch) =>{
+
+  return await axios.delete(`http://localhost:3001/videogames/${id}`).then( (g) => dispatch ({
+    type: DELETE_GAME,
+    payload: g.data
+  }))
+   
+};
+
 export const getPlatform = () => async (dispatch) => {
  try {
-    const response = await fetch(`https://api.rawg.io/api/platforms?key=3953db57b3654f38a111a955ab8ec520`);
+    const response = await fetch(`http://localhost:3001/videogames`);
     const data = await response.json();
+   
+    const allPlat = await data.map((e) => e.platforms);
+    
+    
+    const plats = await allPlat.flat();
+    const unicos = await [... new Set(plats)];
     
     return dispatch({
       type: GET_PLATFORMS,
-      payload: data,
+      payload: unicos,
     })
  } catch (error) {
   return error;
