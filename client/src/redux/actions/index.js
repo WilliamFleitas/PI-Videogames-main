@@ -1,4 +1,4 @@
-const { API_KEY } = process.env;
+
 const axios = require('axios').default;
 
 export const VIDEO_GAMES = "VIDEO_GAMES";
@@ -59,7 +59,7 @@ export const getPlatform = () => async (dispatch) => {
     
     
     const plats = await allPlat.flat();
-    const unicos = await [... new Set(plats)];
+    const unicos = [...new Set(plats)];
     
     return dispatch({
       type: GET_PLATFORMS,

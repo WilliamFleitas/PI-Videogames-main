@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail, deleteGame } from "../../redux/actions";
-import img404 from "../../imagenes/img404.jpg";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import Loading from "../loading/Loading"
 import s from "../gamedetail/gameDetail.module.css";
 const GameDetail = (props) => {
+
   const [carga, setCarga] = useState(true);
 
   const dispatch = useDispatch();
+  const {id} = useParams();
   const detail = useSelector((state) => state.gameDetail);
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getDetail(props.match.params.id)).then(() => setCarga(false));
-  }, [dispatch]);
+    dispatch(getDetail(id)).then(() => setCarga(false));
+  }, [dispatch, id]);
 
   const handleDelete = (event) => {
     event.preventDefault();
-    dispatch(deleteGame(props.match.params.id));
+    dispatch(deleteGame(id));
     alert("Juego eliminado");
     history.push("/home");
   };
@@ -36,7 +37,7 @@ const GameDetail = (props) => {
     <div className={s.containerPadre}>
       <div className={s.containerButton}>
         <NavLink className={s.detailButton} to={"/home"}>
-          Volver al Home
+          Volver al inicio
         </NavLink>
       </div>
 

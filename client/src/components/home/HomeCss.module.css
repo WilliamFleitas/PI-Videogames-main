@@ -9,18 +9,113 @@ body {
 
 
 .searchBarDiv {
-  
+  display: flex;
   background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
-  padding:30px 0px 25px 30px;
+  padding:30px 0px 25px 1920px;
   margin: 0px 0px 0px 0px;
   border: 2px outset rgba(56, 3, 117, 0.582);
+  justify-content: center;
+}
+
+
+.containerButtonStart{
+  display: absolute;
+  justify-content: start;
+  margin: -50px 135rem 0px -50px ;
+  padding: 0px 0px 0px 0px;
+  /* background: linear-gradient(rgba(6, 0, 10, 0.747), rgba(6, 0, 10, 0.747)),
+  url("../../imagenes/loadcat.gif");
+  background-size: fill; */
+}
+
+.detailButtonStart {
+  padding: 35px;
+  margin: 30px;
+  
+  cursor: pointer;
+  outline: none;
+  background: 
+  url("../../imagenes/loadcat.gif")
+    center no-repeat;
+  background-size: contain;
+  background-position: start;
   
 }
 
-.searchBar {
+.containerCrearJuego{
+  
+  justify-content: start;
+  margin: -13px 0rem 0px 0px ;
+  padding: 0px 0px 0px 0px;
+}
+
+.containerRecarga{
+  justify-content: center;
+  margin: 60px 0px 0px 0px ;
+}
+
+.filterBar {
+  margin: 60px 0px 0px 0px ;
+  
+}
+.detailButton {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 12px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  
+  text-decoration: none;
+ }
+ 
+ .detailButton::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+ }
+ 
+ .detailButton:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 2em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+ }
+ 
+ .detailButton:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+         0 0 2.5em 2em var(--glow-spread-color),
+         inset 0 0 .5em .25em var(--glow-color);
+ }
+
+
+.searchBar{
+ 
   margin-left: auto;
   margin-right: auto;
-  background-color: black;
+  background: linear-gradient(rgba(206, 184, 206, 0.555), rgba(4, 3, 4, 0.8));
+  border-radius: 55px;
 }
 .navLink {
   text-decoration: none;
@@ -35,3 +130,123 @@ body {
  
 }  
 
+@media only screen and (max-width: 2300px) {
+
+  .containerButtonStart{
+    display: absolute;
+    justify-content: start;
+    margin: -50px 135rem 0px -10px ;
+    padding: 0px 0px 0px 0px;
+    /* background: linear-gradient(rgba(6, 0, 10, 0.747), rgba(6, 0, 10, 0.747)),
+    url("../../imagenes/loadcat.gif");
+    background-size: fill; */
+  }
+  .searchBarDiv {
+    display: flex;
+    background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
+    padding:30px 0px 25px 1520px;
+    margin: 0px 0px 0px 0px;
+    border: 2px outset rgba(56, 3, 117, 0.582);
+    justify-content: center;
+  }
+
+  .detailButtonStart {
+    padding: 35px;
+    margin: 30px;
+    
+    cursor: pointer;
+    outline: none;
+    background: 
+    url("../../imagenes/loadcat.gif")
+      center no-repeat;
+    background-size: contain;
+    background-position: start;
+    
+  }
+  
+  .containerCrearJuego{
+    
+    justify-content: start;
+    margin: -13px 0rem 0px 0px ;
+    padding: 0px 0px 0px 0px;
+  }
+
+}
+
+@media only screen and (max-width: 1700px) {
+
+  .containerButtonStart{
+    display: absolute;
+    justify-content: start;
+    margin: -50px 135rem 0px -10px ;
+    padding: 0px 0px 0px 0px;
+    /* background: linear-gradient(rgba(6, 0, 10, 0.747), rgba(6, 0, 10, 0.747)),
+    url("../../imagenes/loadcat.gif");
+    background-size: fill; */
+  }
+  
+  .detailButtonStart {
+    padding: 35px;
+    margin: 30px;
+    
+    cursor: pointer;
+    outline: none;
+    background: 
+    url("../../imagenes/loadcat.gif")
+      center no-repeat;
+    background-size: contain;
+    background-position: start;
+    
+  }
+  
+  .containerCrearJuego{
+    
+    justify-content: start;
+    margin: -13px 0rem 0px 0px ;
+    padding: 0px 0px 0px 0px;
+  }
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+  .containerButtonStart{
+    display: absolute;
+    justify-content: start;
+    margin: -50px 135rem 0px -10px ;
+    padding: 0px 0px 0px 0px;
+    /* background: linear-gradient(rgba(6, 0, 10, 0.747), rgba(6, 0, 10, 0.747)),
+    url("../../imagenes/loadcat.gif");
+    background-size: fill; */
+  }
+  .searchBarDiv {
+    display: flex;
+    background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
+    padding:30px 0px 25px 820px;
+    margin: 0px 0px 0px 0px;
+    border: 2px outset rgba(56, 3, 117, 0.582);
+    justify-content: center;
+  }
+  
+  .detailButtonStart {
+    padding: 35px;
+    margin: 30px;
+    
+    cursor: pointer;
+    outline: none;
+    background: 
+    url("../../imagenes/loadcat.gif")
+      center no-repeat;
+    background-size: contain;
+    background-position: start;
+    
+  }
+  
+  .containerCrearJuego{
+    
+    justify-content: start;
+    margin: -13px 0rem 0px 0px ;
+    padding: 0px 0px 0px 0px;
+  }
+
+}

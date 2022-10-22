@@ -9,13 +9,13 @@ export default function Paginado ({gamesPerPage, allGames, paginado}){
         pageNumbers.push(i)
     }
     return (
-        <nav >
-            <ul className={s.paginado}>
+        <nav className={s.containerPadre}>
+            <ul className={s.nums}>
                 {
                     pageNumbers && pageNumbers.map(number => {
                       return (
                         <li  key={number}>
-                            <button onClick={() => paginado(number)}>{number}</button>     
+                            <button className={s.button} onClick={() => paginado(number)}>{number}</button>     
                         </li>
                       )  
                     })

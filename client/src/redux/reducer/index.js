@@ -11,7 +11,7 @@ import {
   GET_DETAILS,
   DELETE_GAME,
 } from "../actions/index";
-import img404 from "../../imagenes/img404.jpg";
+
 
 const initialState = {
   listGames: [],

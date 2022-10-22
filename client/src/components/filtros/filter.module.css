@@ -1,0 +1,23 @@
+.filters {
+    color: rgb(150, 12, 127);
+    
+  }
+  
+  
+  .underline{
+    border-bottom: 1px solid white;
+    text-align: center;
+    padding-top: 10px;
+    overflow: hidden;
+  }
+  
+  .options{
+    width: 15%;
+    border: 4px double rgba(105, 2, 91, 0.582);
+    background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
+    color: rgb(175, 135, 170);
+  }
+  
+  .aligns{
+  margin-top: 1em;
+  }

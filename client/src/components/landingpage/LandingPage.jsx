@@ -15,12 +15,12 @@ const LandingPage = (props) => {
 
             <div  >
             <a  href="https://github.com/WilliamFleitas" target="_black"> 
-            <img className={s.giticon} src={giticon}/>
+            <img className={s.giticon} src={giticon} alt="githut"/>
              </a>
             </div>
             <div  >
             <a href="https://www.linkedin.com/in/w-oni/" target="_black">
-                <img className={s.linkicon} src={linkicon}/>
+                <img className={s.linkicon} src={linkicon} alt="linkedin"/>
              </a> 
             </div>
             

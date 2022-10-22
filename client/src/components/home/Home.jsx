@@ -85,18 +85,32 @@ const Home = (props) => {
         <SearchBar className={s.searchBar} />
       </div>
       
+      <div className={s.containerButtonStart}>
+        <NavLink className={s.detailButtonStart} to={"/"}>
+         
+        </NavLink>
+      </div>
 
+      <div className={s.containerCrearJuego}>
+        <NavLink className={s.detailButton} to={"/creategame"}>
+          Crear un juego
+        </NavLink>
+      </div>
+      
+      <div className={s.containerRecarga}>
       <button
-        className="buttonGameL"
+        className={s.detailButton}
         onClick={(event) => {
           handleClick(event);
         }}
       >
         Recargar personajes
       </button>
+      </div>
       
-      <div >
-      <FilterBar handleSortByName={handleSortByName} handleFilterGenres={handleFilterGenres}
+      
+      <div className={s.filterBar}>
+      <FilterBar className={s.detailButton} handleSortByName={handleSortByName} handleFilterGenres={handleFilterGenres}
       handleSortByRating={handleSortByRating}
       handleFilterCreated={handleFilterCreated}
       ></FilterBar>
