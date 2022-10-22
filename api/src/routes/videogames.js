@@ -1,4 +1,5 @@
 const express = require("express");
+const { Videogame,} = require("../db");
 
 const router = express.Router();
 const { getGames, gameId, createGame, } = require("./controllers");
@@ -22,6 +23,18 @@ router.get("/", async (req, res) => {
   } catch (error) {
     res.status(400).send(error);
   }
+});
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+   try {
+      const response = await Videogame.findByPk(id);
+      await response.destroy(id);
+      res.status(200).send("Eliminado con exito");
+   } catch (error) {
+    res.status(400).send("no se pudo eliminar el juego");
+   }
+
 });
 
 router.get("/:id", async (req, res) => {
