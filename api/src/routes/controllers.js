@@ -69,6 +69,8 @@ const getGames = async () => {
   }
 };
 
+
+
 const gameId = async (id) => {
   if (!isNaN(id)) {
     const responseApi = await fetch(
@@ -86,6 +88,7 @@ const gameId = async (id) => {
         released: responseApi.released,
         rating: responseApi.rating,
         platforms: responseApi.platforms.map((p) => p.platform.name).toString(),
+        
       };
       return gameApiInfo;
   }
@@ -112,27 +115,11 @@ const gameId = async (id) => {
     released: responseDb.released,
     rating: responseDb.rating,
     platforms: responseDb.platforms,
+    createInDb: responseDb.createdInDb,
   };
+  console.log(gameDbInfo)
   return gameDbInfo;
  
-};
-
-
-const getPlatforms = async () => {
-  const infoPlatforms = await fetch(
-    `https://api.rawg.io/api/platforms?key=${API_KEY}`
-  )
-    .then((response) => response.json())
-    .then((data) => data);
-
-  let platformsApi = infoPlatforms.results.map((nameP) => {
-    return {
-      name: nameP.name,
-      games_count: nameP.games_count,
-      games: nameP.games,
-    };
-  });
-  return platformsApi;
 };
 
 
@@ -196,9 +183,10 @@ const getGenres = async () => {
 };
 
 module.exports = {
-  getPlatforms,
+ 
   getGames,
   gameId,
   createGame,
-  getGenres
+  getGenres,
+ 
 };
