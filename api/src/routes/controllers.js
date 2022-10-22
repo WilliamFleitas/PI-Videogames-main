@@ -117,7 +117,7 @@ const gameId = async (id) => {
     platforms: responseDb.platforms,
     createInDb: responseDb.createdInDb,
   };
-  console.log(gameDbInfo)
+  
   return gameDbInfo;
  
 };
