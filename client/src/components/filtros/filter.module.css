@@ -11,13 +11,41 @@
     overflow: hidden;
   }
   
-  .options{
-    width: 15%;
-    border: 4px double rgba(105, 2, 91, 0.582);
-    background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
-    color: rgb(175, 135, 170);
+  .options option {
+    --glow-color: rgb(207, 187, 209);
+    background: rgba(66, 2, 66, 0.959);
+    color: var(--glow-color);
   }
-  
+  .options{
+    --glow-color: rgb(207, 187, 209);
+  --glow-spread-color: rgba(191, 123, 255, 0.568);
+  --enhanced-glow-color: rgba(231, 206, 255, 0.651);
+  --btn-color: rgb(100, 61, 136);
+    width: 15%;
+    border: .25em solid var(--glow-color);
+    background: linear-gradient(rgba(66, 2, 66, 0.555), rgba(78, 2, 78, 0.8));
+    color: var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+         text-decoration: none;
+         transition: all 0.4s;
+         border-radius: 1em;
+  outline: none;
+  }
+
+  .options:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+    
+   }
+   
+   .options:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+    
+   }
   .aligns{
   margin-top: 1em;
   }

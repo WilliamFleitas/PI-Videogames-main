@@ -6,7 +6,7 @@ import {
   getPlatform,
 } from "../../redux/actions/index";
 import { useDispatch, useSelector } from "react-redux";
-
+import s from "../gamecreate/gameCreate.module.css"
 
 const validate = (input) => {
     let errors = {};
@@ -148,16 +148,31 @@ const GameCreate = () => {
   };
 
   return (
-    <div>
-      <NavLink to="/home">
-        <button>Volver a Home</button>
-      </NavLink>
-      <h1>Crea tu juego!</h1>
+    <div className={s.containerPadre}>
 
-      <form onSubmit={ (event ) => handleSubmit(event)}>
+      <div className={s.subContainer}>
+      <div className={s.firstContainerForm}>
+      <NavLink  to="/home">
+
+        <div className={s.buttonContainer}>
+          
+        <button className={s.buttonForm}>
+          Volver a Home
+        </button>
+
+        </div>
+        
+      </NavLink>
+      
+      
+      <div className={s.containerForm}>
+
+      <h1 className={s.titulo}>Crea tu juego!</h1>
+
+      <form className={s.form} onSubmit={ (event ) => handleSubmit(event)}>
         <div>
           <label>Nombre: </label>
-          <input
+          <input className={s.thisInput}
             type="text"
             value={input.name}
             name="name"
@@ -165,29 +180,29 @@ const GameCreate = () => {
           ></input>
           {
             errors.name && (
-                <p className="error">{errors.name}</p>
+                <p className={s.red}>{errors.name}</p>
             )
           }
         </div>
 
         <div>
           <label>Descripción: </label>
-          <input
+          <textarea className={s.textArea}
             type="text"
             value={input.description}
             name="description"
             onChange={(event) => handleChange(event)}
-          ></input>
+          />
           {
             errors.description && (
-                <p className="error">{errors.description}</p>
+                <p className={s.red}>{errors.description}</p>
             )
           }
         </div>
 
         <div>
           <label>Fecha de lanzamiento: </label>
-          <input
+          <input className={s.thisInput}
             type="text"
             placeholder="yyyy-mm-dd"
             value={input.released}
@@ -196,14 +211,14 @@ const GameCreate = () => {
           ></input>
            {
             errors.released && (
-                <p className="error">{errors.released}</p>
+                <p className={s.red}>{errors.released}</p>
             )
           }
         </div>
 
         <div>
           <label>Rating: </label>
-          <input
+          <input className={s.thisInput}
             type="number"
             value={input.rating}
             name="rating"
@@ -211,14 +226,14 @@ const GameCreate = () => {
           ></input>
            {
             errors.rating && (
-                <p className="error">{errors.rating}</p>
+                <p className={s.red}>{errors.rating}</p>
             )
           }
         </div>
 
         <div>
-          <label>Imagen: </label>
-          <input
+          <label>ImagenUrl: </label>
+          <input className={s.thisInput}
             type="text"
             value={input.background_image}
             name="background_image"
@@ -226,14 +241,14 @@ const GameCreate = () => {
           ></input>
           {
             errors.background_image && (
-                <p className="error">{errors.background_image}</p>
+                <p className={s.red}>{errors.background_image}</p>
             )
           }
         </div>
         
         <div>
           <label>Plataformas: </label>
-          <select onChange={(event) => handlePlatform(event)}>
+          <select className={s.thisInput} onChange={(event) => handlePlatform(event)}>
             <option value="all">All</option>
             {allPlatforms?.map((p) => {
               return (
@@ -243,42 +258,9 @@ const GameCreate = () => {
               );
             })}
           </select>
+          </div>
+          <div className={s.selected}>
           
-        </div>
-
-        <div>
-          <label>Generos: </label>
-          <select onChange={(event) => handleGenre(event)}>
-            <option value="all">All</option>
-            {allGenres?.map((g) => {
-              return (
-                <option key={g.id} value={g.name}>
-                  {g.name}
-                </option>
-              );
-            })}
-          </select>
-
-          
-        </div>
-
-        <button type="submit">Crear juego!</button>
-      </form>
-      <label>Generos: </label>
-          {input.genres.map((g) => (
-            <div key={g}>
-              <p>{g}</p>
-              <button
-                onClick={() => handleDeleteGenre(g)}
-                key={g.id}
-                id={g.id}
-                value={g.name}
-              >
-                <span>X</span>
-              </button>
-            </div>
-          ))}
-          <label>Plataformas: </label>
           {input.platforms.map((p) => (
             <div key={p}>
               <p>{p}</p>
@@ -292,6 +274,52 @@ const GameCreate = () => {
               </button>
             </div>
           ))}
+        </div>
+
+        <div>
+          <label>Generos: </label>
+          <select className={s.thisInput} onChange={(event) => handleGenre(event)}>
+            <option value="all">All</option>
+            {allGenres?.map((g) => {
+              return (
+                <option key={g.id} value={g.name}>
+                  {g.name}
+                </option>
+              );
+            })}
+          </select>
+          </div>
+          <div className={s.selected}>
+          {input.genres.map((g) => (
+            <div key={g}>
+              <p>{g}</p>
+              <button
+                onClick={() => handleDeleteGenre(g)}
+                key={g.id}
+                id={g.id}
+                value={g.name}
+              >
+                <span>X</span>
+              </button>
+            </div>
+          ))}
+          </div>
+       
+
+        {Object.keys(errors).length ? (
+            <div className={s.formDiv}>
+              <input className={s.buttonForm} type="submit" disabled name="Send" />
+            </div>
+          ) : (
+            <div className={s.formDiv}>
+              <input className={s.buttonForm} type="submit"   name="Send" />
+            </div>
+          )}
+      </form>
+      </div>
+      </div>
+      </div>
+      
     </div>
   );
 };

@@ -3,7 +3,10 @@
 } */
 
 .containerCard {
-  
+  --glow-color: rgb(207, 187, 209);
+  --glow-spread-color: rgba(191, 123, 255, 0.568);
+  --enhanced-glow-color: rgba(231, 206, 255, 0.651);
+  --btn-color: rgb(100, 61, 136);
     height: 470px;
     width: 470px;
     text-align: center;
@@ -11,17 +14,26 @@
     padding: 10px;
     display: grid;
     place-items: center;
-    background: linear-gradient(rgba(1, 1, 1, 0.8), rgba(179, 2, 149, 0.8)),
+    background: linear-gradient(rgba(37, 1, 83, 0.897), rgba(31, 3, 97, 0.726)),
       url("../../imagenes/cyberpunk-ponpon.gif")
         center no-repeat;
+        color: var(--glow-color);
+        font-size: 12px;
+        font-weight: bold;
     image-resolution: 100%;
     background-size: 179%;
-    border: 2px solid rgb(70, 20, 187);
+    border: .15em solid var(--glow-color);
     border-radius: 30px;
+    outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  transition: all 0.3s;
   }
   .containerCard:hover {
     transform: scale(1.1);
-    border: 5px double rgb(221, 215, 212);
+    border: 2px double rgb(221, 215, 212);
     transition: all 2s, ease;
   }
 

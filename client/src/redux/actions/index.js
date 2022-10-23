@@ -21,7 +21,7 @@ export const getVideogames = () => async (dispatch) => {
        type: VIDEO_GAMES,
         payload: data });
   } catch (error) {
-    console.log(error)
+    
     return error;
   }
 };
@@ -89,7 +89,7 @@ export const getVideogamesName = (name) => async (dispatch) => {
    
     return dispatch({ type: VIDEO_GAMES_NAME, payload: data });
   } catch (error) {
-    console.log(error)
+    
     return error;
   }
 };

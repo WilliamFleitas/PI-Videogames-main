@@ -6,7 +6,21 @@
     flex-direction: column;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+    
 }
+
+
+
+.containerMain{
+  margin: 0px auto 100px auto;
+  width: 80%;
+  height: 60vh;
+  display: flex;
+  background: linear-gradient(rgba(209, 9, 42, 0.822), rgba(146, 6, 24, 0.945));
+  border: 2px solid rgb(70, 20, 187);
+ 
+}
+
 
 .containerButton{
     display: flex;
@@ -29,34 +43,26 @@
   padding: 0px 0px 0px 500px;
 }
 
-.containerMain{
-    margin: 0px auto 100px auto;
-    width: 80%;
-    height: 60vh;
-    display: flex;
-    border: 5px outset rgba(22, 2, 59, 0.397);
-   
-}
-
 
 .containerImg{
     height: auto;
    width: 50%;
    background-size: cover;
    background-position: center;
-   border: 5px outset rgb(2, 0, 5);
-   
+   border: 2px solid rgb(70, 20, 187);
+   background-color: red;
 }
+
 
 
 .containerTextDescrip{
     width: 50%;
    
-    background: linear-gradient(rgba(21, 3, 88, 0.911), rgba(57, 1, 78, 0.918)),
+    background: linear-gradient(rgba(80, 2, 63, 0.822), rgba(70, 1, 59, 0.945)),
   url("../../imagenes/cyberpunk-ponpon.gif")
     center no-repeat;
     background-size: cover;
-    border: 5px outset rgb(2, 0, 5);
+    border: 2px solid rgb(70, 20, 187);
     padding: 20px 20px 15px 20px;
     
     overflow: scroll;
@@ -81,7 +87,6 @@
     5px 5px 0px #201f20,
     5px 5px 0px #757172;
 }
-
 .containerTextDescrip::-webkit-scrollbar {
   width: 0.5em;
 }
@@ -140,7 +145,7 @@
 }
 
 .containerGenPlat {
-    border: 5px solid rgba(1, 1, 1, 0.8);
+  border: 2px solid rgb(70, 20, 187);
 
     padding: 15px 5px 0px 10px ;
     text-align: start;
@@ -153,7 +158,7 @@
     padding: 10px;
     margin-top: 2rem;
     text-justify:distribute;
-    border: 5px solid rgba(1, 1, 1, 0.8);
+    border: 2px solid rgb(70, 20, 187);
    text-align: start;
    line-height : 35px;
    background: linear-gradient(rgba(1, 1, 1, 0.8), rgba(1, 1, 1, 0.8));
@@ -179,7 +184,7 @@
     margin-top: 1rem;    
     display: flex;
     justify-content: space-between;
-    border: 5px solid rgba(1, 1, 1, 0.8);
+    border: 2px solid rgb(70, 20, 187);
    text-align: start;
    line-height : 25px;
    background: linear-gradient(rgba(1, 1, 1, 0.8), rgba(1, 1, 1, 0.8));

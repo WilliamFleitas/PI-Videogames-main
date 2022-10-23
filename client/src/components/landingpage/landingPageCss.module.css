@@ -37,7 +37,10 @@
     position: center;
 
   }
-
+  .button:hover {
+    transform: translate(-0.01em, -0.04em);
+    
+   }
 
  .giticon{
   position: absolute;
@@ -62,16 +65,26 @@
  }
 
   .text {
+    --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
     font-family: 'Press Start 2P', cursive;
     text-align: center;
+    justify-content: center;
     padding: 15px 15px 30px 28px;
     font-size: 30px;
-    background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
+    font-weight: bold;
     
-    /* background-color: #3802221f; */
-    border: 2px outset rgb(12, 9, 11);
+    outline: none;
     
-  color: #910b8580;
+    
+    position: relative;
+    transition: all 0.3s;
+    color: var(--glow-color);
+    text-decoration: none;
+
+   
   text-shadow:
     1px 2px 0px #a9a0aa,
     1px 2px 0px #a89fa7,
@@ -88,10 +101,15 @@
     7px 7px 1px #696363,
     7px 7px 1px #080808,
     7px 7px 0px #201f20,
-    7px 8px 0px #757172;
+    7px 8px 0px #757172; 
 
     
   }
+  .text:hover {
+    transform: translate(-0.05em, -0.05em);
+    
+   }
+   
 
   @media only screen and (max-width: 1000px) {
     .giticon{

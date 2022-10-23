@@ -9,11 +9,15 @@ body {
 
 
 .searchBarDiv {
+  --glow-color: rgb(207, 187, 209);
+  --glow-spread-color: rgba(191, 123, 255, 0.568);
+  --enhanced-glow-color: rgba(231, 206, 255, 0.651);
+  --btn-color: rgb(121, 97, 143);
   display: flex;
-  background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
+  background: linear-gradient(rgba(37, 1, 83, 0.897), rgb(108, 94, 119));
   padding:30px 0px 25px 1920px;
   margin: 0px 0px 0px 0px;
-  border: 2px outset rgba(56, 3, 117, 0.582);
+  border: 2px solid rgb(11, 8, 14);
   justify-content: center;
 }
 
@@ -29,7 +33,7 @@ body {
 }
 
 .detailButtonStart {
-  padding: 35px;
+  padding: 45px 15px 15px 65px;
   margin: 30px;
   
   cursor: pointer;
@@ -45,7 +49,7 @@ body {
 .containerCrearJuego{
   
   justify-content: start;
-  margin: -13px 0rem 0px 0px ;
+  margin: -25px 0rem 5px 0px ;
   padding: 0px 0px 0px 0px;
 }
 
@@ -125,9 +129,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 5px;
+  padding: 5px 0px 5px 0px;
   margin: 10px;
- 
+  line-height : 20px;
+  font-size: 15px;
 }  
 
 @media only screen and (max-width: 2300px) {
@@ -142,12 +147,16 @@ body {
     background-size: fill; */
   }
   .searchBarDiv {
-    display: flex;
-    background: linear-gradient(rgba(4, 3, 4, 0.555), rgba(4, 3, 4, 0.8));
-    padding:30px 0px 25px 1520px;
-    margin: 0px 0px 0px 0px;
-    border: 2px outset rgba(56, 3, 117, 0.582);
-    justify-content: center;
+    --glow-color: rgb(207, 187, 209);
+  --glow-spread-color: rgba(191, 123, 255, 0.568);
+  --enhanced-glow-color: rgba(231, 206, 255, 0.651);
+  --btn-color: rgb(121, 97, 143);
+  display: flex;
+  background: linear-gradient(rgba(197, 132, 207, 0.664), rgba(53, 32, 53, 0.589));
+  padding: 25px 0px 11px 1220px;
+  margin: 0px 0px 0px 0px;
+  border: 3px solid rgb(11, 8, 14);
+  justify-content: center;
   }
 
   .detailButtonStart {

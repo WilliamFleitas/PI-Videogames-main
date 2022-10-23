@@ -23,7 +23,7 @@ const GameDetail = (props) => {
     alert("Juego eliminado");
     history.push("/home");
   };
-  console.log(detail);
+  
 
   if (carga) {
     return (
@@ -46,7 +46,7 @@ const GameDetail = (props) => {
           Crear un juego
         </NavLink>
       </div>
-
+      
       <div className={s.containerMain} key={detail.id}>
         <div
           className={s.containerImg}
@@ -90,8 +90,10 @@ const GameDetail = (props) => {
               {detail.description?.replace(regex, " ").replace(" ", " ")}
             </p>
           </div>
-        </div>
+        
       </div>
+      </div>
+      
           
         {
             detail.createInDb? <div className={s.containerDelete}> 
