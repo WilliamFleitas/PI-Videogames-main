@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L",
-    "devstart": "node index.js",
+    "start": "node index.js",
+    "devstart": "nodemon -L",
     "test": "mocha -w ./tests/*/.spec.js"
   },
-
   "author": "Henry",
   "license": "ISC",
   "engines": {
@@ -22,10 +21,10 @@
     "cors": "^2.8.5",
     "cross-fetch": "^3.1.5",
     "dotenv": "^8.2.0",
-    
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "morgan": "^1.10.0",
     "node-fetch": "^3.2.10",
+    "nodemon": "^2.0.20",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5"
   },
