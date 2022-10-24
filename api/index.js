@@ -1,3 +1,4 @@
+
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88
@@ -19,14 +20,15 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-
+const  dotenv = require("dotenv");
+dotenv.config();
 
 //aca corremos el server en el puerto 3001, el server nos viene de app.js que es donde hicimos la instancia de server = express()
 // esto solo corre nuestro servidor
 // Syncing all the models at once..
 //el conn syncroniza nuestra database con el servidor levantado
 conn.sync({ }).then(() => {
-  server.listen(3001, () => {
+  server.listen(process.env.PORT, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
