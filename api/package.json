@@ -1,13 +1,13 @@
-
 {
   "name": "api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-   
-    "test": "mocha -w ./tests/**/*.spec.js",
-    "develop": "nodemon src/server"
+    "start": "nodemon -L",
+    "develop": "nodemon src/server",
+    "test": "mocha -w ./tests/**/*.spec.js"
+    
    
   },
   "author": "Henry",
