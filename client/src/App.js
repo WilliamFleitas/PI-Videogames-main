@@ -5,7 +5,8 @@ import LandingPage from "./components/landingpage/LandingPage"
 import Home from "./components/home/Home";
 import GameCreate from './components/gamecreate/GameCreate';
 import GameDetail from './components/gamedetail/GameDetail';
-
+import { NotFound } from './components/notFound/NotFound';
+import { About } from './components/about/About';
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         <Route exact path="/home" component={Home}/>
         <Route exact path="/creategame" component={GameCreate}/>
         <Route exact path="/videogames/:id" component={GameDetail}/>
-
+        <Route exact path="/about" component={About}/>
+        <Route path="/*" component={NotFound}/>
       </Switch>
     </div>
     </BrowserRouter>
