@@ -31,7 +31,7 @@ export const getVideogames = () => async (dispatch) => {
 
 export const getDetail = (id) => async (dispatch) => {
       try {
-        const response = await fetch(`https://pi-videogames-main-lime.vercel.app/videogames/${id}`);
+        const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames/${id}`);
         const data = await response.json();
        
         
@@ -47,7 +47,7 @@ export const getDetail = (id) => async (dispatch) => {
 export const deleteGame = (id) => async (dispatch) =>{
 
     try {
-      const response = await fetch(`https://pi-videogames-main-lime.vercel.app/videogames/${id}`, {
+      const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames/${id}`, {
       method: "DELETE",
       
       headers: { 'Content-Type': 'application/json' }
@@ -69,7 +69,7 @@ export const deleteGame = (id) => async (dispatch) =>{
 
 export const getPlatform = () => async (dispatch) => {
  try {
-    const response = await fetch(`https://pi-videogames-main-lime.vercel.app/videogames`);
+    const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames`);
     const data = await response.json();
    
     const allPlat = await data.map((e) => e.platforms);
@@ -91,7 +91,7 @@ export const postGame = (game) => async () => {
 
   try {
 
-     const response = await fetch("https://pi-videogames-main-lime.vercel.app/videogames", {
+     const response = await fetch("https://videogame-henry-pi.herokuapp.com/videogames", {
       method: "POST",
       body: JSON.stringify(game),
       headers: { 'Content-Type': 'application/json' }
@@ -109,7 +109,7 @@ export const postGame = (game) => async () => {
 
 export const getVideogamesName = (name) => async (dispatch) => {
   try {
-    const response = await fetch(`https://pi-videogames-main-lime.vercel.app/videogames?name=${name}`);
+    const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames?name=${name}`);
     const data = await response.json();
    
     return dispatch({ type: VIDEO_GAMES_NAME, payload: data });
@@ -121,7 +121,7 @@ export const getVideogamesName = (name) => async (dispatch) => {
 
 export const getByGenres = () => async  (dispatch) => {
   try {
-    const response = await fetch(`https://pi-videogames-main-lime.vercel.app/genres`);
+    const response = await fetch(`https://videogame-henry-pi.herokuapp.com/genres`);
     const data = await response.json();
   
     return dispatch({
