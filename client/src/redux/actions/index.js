@@ -1,5 +1,5 @@
 
-// const axios = require('axios');
+const axios = require('axios');
 
 
 export const VIDEO_GAMES = "VIDEO_GAMES";
@@ -17,12 +17,11 @@ export const DELETE_GAME = "DELETE_GAME";
 export const getVideogames = () => async (dispatch) => {
   try {
     //http://localhost:3001/videogames
-    const response = await fetch("/videogames");
-    const data = await response.json();
-    console.log(data);
-    return dispatch({
-       type: VIDEO_GAMES,
-        payload: data });
+    var json = await axios.get(`https://videogame-henry-pi.herokuapp.com/videogames`);
+        dispatch({
+            type: 'GET_ALL_GAMES',
+            payload: json.data
+        })
   } catch (error) {
     
     return error;
@@ -31,7 +30,7 @@ export const getVideogames = () => async (dispatch) => {
 
 export const getDetail = (id) => async (dispatch) => {
       try {
-        const response = await fetch(`/videogames/${id}`);
+        const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames/${id}`);
         const data = await response.json();
        
         
@@ -47,7 +46,7 @@ export const getDetail = (id) => async (dispatch) => {
 export const deleteGame = (id) => async (dispatch) =>{
 
     try {
-      const response = await fetch(`/videogames/${id}`, {
+      const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames/${id}`, {
       method: "DELETE",
       
       headers: { 'Content-Type': 'application/json' }
@@ -69,7 +68,7 @@ export const deleteGame = (id) => async (dispatch) =>{
 
 export const getPlatform = () => async (dispatch) => {
  try {
-    const response = await fetch(`/videogames`);
+    const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames`);
     const data = await response.json();
    
     const allPlat = await data.map((e) => e.platforms);
@@ -91,7 +90,7 @@ export const postGame = (game) => async () => {
 
   try {
 
-     const response = await fetch("/videogames", {
+     const response = await fetch("https://videogame-henry-pi.herokuapp.com/videogames", {
       method: "POST",
       body: JSON.stringify(game),
       headers: { 'Content-Type': 'application/json' }
@@ -109,7 +108,7 @@ export const postGame = (game) => async () => {
 
 export const getVideogamesName = (name) => async (dispatch) => {
   try {
-    const response = await fetch(`/videogames?name=${name}`);
+    const response = await fetch(`https://videogame-henry-pi.herokuapp.com/videogames?name=${name}`);
     const data = await response.json();
    
     return dispatch({ type: VIDEO_GAMES_NAME, payload: data });
@@ -121,7 +120,7 @@ export const getVideogamesName = (name) => async (dispatch) => {
 
 export const getByGenres = () => async  (dispatch) => {
   try {
-    const response = await fetch(`/genres`);
+    const response = await fetch(`https://videogame-henry-pi.herokuapp.com/genres`);
     const data = await response.json();
   
     return dispatch({

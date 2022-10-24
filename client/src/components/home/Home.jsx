@@ -15,7 +15,7 @@ const Home = (props) => {
 
   const allGames = useSelector((state) => state.listGames);
 
-  
+  console.log(allGames);
 
   const [carga, setCarga] = useState(true);
   const [orden, setOrden] = useState("");
