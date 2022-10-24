@@ -1,5 +1,5 @@
 
-// const axios = require('axios');
+const axios = require('axios');
 
 
 export const VIDEO_GAMES = "VIDEO_GAMES";
@@ -17,12 +17,12 @@ export const DELETE_GAME = "DELETE_GAME";
 export const getVideogames = () => async (dispatch) => {
   try {
     //http://localhost:3001/videogames
-    const response = await fetch("https://pi-videogames-main-lime.vercel.app/videogames");
-    const data = await response.json();
-    console.log(data);
+    const response = await axios("https://videogame-henry-pi.herokuapp.com/videogames");
+    
+    console.log(response);
     return dispatch({
        type: VIDEO_GAMES,
-        payload: data });
+        payload: response.data });
   } catch (error) {
     
     return error;
