@@ -44,10 +44,24 @@ export const getDetail = (id) => async (dispatch) => {
 
 export const deleteGame = (id) => async (dispatch) =>{
 
-  return await axios.delete(`http://localhost:3001/videogames/${id}`).then( (g) => dispatch ({
-    type: DELETE_GAME,
-    payload: g.data
-  }))
+    try {
+      const response = await fetch(`http://localhost:3001/videogames/${id}`, {
+      method: "DELETE",
+      
+      headers: { 'Content-Type': 'application/json' }
+    }); 
+    return {
+      type: DELETE_GAME,
+      payload: response
+    };
+    } catch (error) {
+      return error;
+    }
+
+  // return await axios.delete(`http://localhost:3001/videogames/${id}`).then( (g) => dispatch ({
+  //   type: DELETE_GAME,
+  //   payload: g.data
+  // }))
    
 };
 
@@ -71,12 +85,20 @@ export const getPlatform = () => async (dispatch) => {
  }
 };
 
-export const postGame = (game) => async (dispatch) => {
+export const postGame = (game) => async () => {
 
   try {
-     const response = await axios.post("http://localhost:3001/videogames", game);
+
+     const response = await fetch("http://localhost:3001/videogames", {
+      method: "POST",
+      body: JSON.stringify(game),
+      headers: { 'Content-Type': 'application/json' }
+     });
+     return response;
+
+    //  const response = await axios.post("http://localhost:3001/videogames", game);
     
-    return response;
+    // return response;
     
   } catch (error) {
     return error;
