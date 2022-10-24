@@ -16,11 +16,12 @@ export const DELETE_GAME = "DELETE_GAME";
 
 export const getVideogames = () => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:3001/videogames");
-    const data = await response.json();
+    //http://localhost:3001/videogames
+    var call = await axios.get("/videogames");
     return dispatch({
-       type: VIDEO_GAMES,
-        payload: data });
+      type: VIDEO_GAMES,
+      payload: call.data,
+    });
   } catch (error) {
     
     return error;
@@ -29,13 +30,11 @@ export const getVideogames = () => async (dispatch) => {
 
 export const getDetail = (id) => async (dispatch) => {
       try {
-        const response = await fetch(`http://localhost:3001/videogames/${id}`);
-        const data = await response.json();
-       
-        
+        const response = await axios.get(`/videogames/${id}`);
+  
          return dispatch({
           type: GET_DETAILS,
-          payload: data,
+          payload: response.data,
          })
       } catch (error) {
         return error;
@@ -45,32 +44,24 @@ export const getDetail = (id) => async (dispatch) => {
 export const deleteGame = (id) => async (dispatch) =>{
 
     try {
-      const response = await fetch(`http://localhost:3001/videogames/${id}`, {
-      method: "DELETE",
-      
-      headers: { 'Content-Type': 'application/json' }
-    }); 
-    return {
-      type: DELETE_GAME,
-      payload: response
-    };
+    return await axios.delete(`/videogames/${id}`).then( (g) => dispatch ({
+    type: DELETE_GAME,
+    payload: g.data
+  }))
     } catch (error) {
       return error;
     }
 
-  // return await axios.delete(`http://localhost:3001/videogames/${id}`).then( (g) => dispatch ({
-  //   type: DELETE_GAME,
-  //   payload: g.data
-  // }))
+  
    
 };
 
 export const getPlatform = () => async (dispatch) => {
  try {
-    const response = await fetch(`http://localhost:3001/videogames`);
-    const data = await response.json();
+    const response = await axios.get(`/videogames`);
+    
    
-    const allPlat = await data.map((e) => e.platforms);
+    const allPlat = await response.data.map((e) => e.platforms);
     
     
     const plats = await allPlat.flat();
@@ -89,16 +80,16 @@ export const postGame = (game) => async () => {
 
   try {
 
-     const response = await fetch("http://localhost:3001/videogames", {
-      method: "POST",
-      body: JSON.stringify(game),
-      headers: { 'Content-Type': 'application/json' }
-     });
-     return response;
+    //  const response = await fetch("https://videogame-henry-pi.herokuapp.com/videogames", {
+    //   method: "POST",
+    //   body: JSON.stringify(game),
+    //   headers: { 'Content-Type': 'application/json' }
+    //  });
+    //  return response;
 
-    //  const response = await axios.post("http://localhost:3001/videogames", game);
+     const response = await axios.post("/videogames", game);
     
-    // return response;
+    return response;
     
   } catch (error) {
     return error;
@@ -107,10 +98,10 @@ export const postGame = (game) => async () => {
 
 export const getVideogamesName = (name) => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:3001/videogames?name=${name}`);
-    const data = await response.json();
+    const response = await axios.get(`/videogames?name=${name}`);
+    
    
-    return dispatch({ type: VIDEO_GAMES_NAME, payload: data });
+    return dispatch({ type: VIDEO_GAMES_NAME, payload: response.data });
   } catch (error) {
     
     return error;
@@ -119,12 +110,12 @@ export const getVideogamesName = (name) => async (dispatch) => {
 
 export const getByGenres = () => async  (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:3001/genres`);
-    const data = await response.json();
+    const response = await axios.get(`/genres`);
+    
   
     return dispatch({
       type: GET_BY_GENRE,
-      payload: data,
+      payload: response.data,
     })
   } catch (error) {
     return error;
