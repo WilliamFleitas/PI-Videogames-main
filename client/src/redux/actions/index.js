@@ -17,7 +17,7 @@ export const DELETE_GAME = "DELETE_GAME";
 export const getVideogames = () => async (dispatch) => {
   try {
     //http://localhost:3001/videogames
-    var call = await axios.get("/videogames");
+    var call = await axios.get("https://videogame-henry-pi.herokuapp.com/videogames");
     return dispatch({
       type: VIDEO_GAMES,
       payload: call.data,
@@ -30,7 +30,7 @@ export const getVideogames = () => async (dispatch) => {
 
 export const getDetail = (id) => async (dispatch) => {
       try {
-        const response = await axios.get(`/videogames/${id}`);
+        const response = await axios.get(`https://videogame-henry-pi.herokuapp.com/videogames/${id}`);
   
          return dispatch({
           type: GET_DETAILS,
@@ -44,7 +44,7 @@ export const getDetail = (id) => async (dispatch) => {
 export const deleteGame = (id) => async (dispatch) =>{
 
     try {
-    return await axios.delete(`/videogames/${id}`).then( (g) => dispatch ({
+    return await axios.delete(`https://videogame-henry-pi.herokuapp.com/videogames/${id}`).then( (g) => dispatch ({
     type: DELETE_GAME,
     payload: g.data
   }))
@@ -58,7 +58,7 @@ export const deleteGame = (id) => async (dispatch) =>{
 
 export const getPlatform = () => async (dispatch) => {
  try {
-    const response = await axios.get(`/videogames`);
+    const response = await axios.get(`https://videogame-henry-pi.herokuapp.com/videogames`);
     
    
     const allPlat = await response.data.map((e) => e.platforms);
@@ -87,7 +87,7 @@ export const postGame = (game) => async () => {
     //  });
     //  return response;
 
-     const response = await axios.post("/videogames", game);
+     const response = await axios.post("https://videogame-henry-pi.herokuapp.com/videogames", game);
     
     return response;
     
@@ -98,7 +98,7 @@ export const postGame = (game) => async () => {
 
 export const getVideogamesName = (name) => async (dispatch) => {
   try {
-    const response = await axios.get(`/videogames?name=${name}`);
+    const response = await axios.get(`https://videogame-henry-pi.herokuapp.com/videogames?name=${name}`);
     
    
     return dispatch({ type: VIDEO_GAMES_NAME, payload: response.data });
@@ -110,7 +110,7 @@ export const getVideogamesName = (name) => async (dispatch) => {
 
 export const getByGenres = () => async  (dispatch) => {
   try {
-    const response = await axios.get(`/genres`);
+    const response = await axios.get(`https://videogame-henry-pi.herokuapp.com/genres`);
     
   
     return dispatch({
