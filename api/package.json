@@ -1,11 +1,15 @@
+
 {
   "name": "api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L",
-    "test": "mocha -w ./tests/**/*.spec.js"
+   
+    "test": "mocha -w ./tests/**/*.spec.js",
+    "start": "node fileName.js",
+      "start:dev": "nodemon fileName.js"
+   
   },
   "author": "Henry",
   "license": "ISC",
