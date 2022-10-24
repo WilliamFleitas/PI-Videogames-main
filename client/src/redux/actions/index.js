@@ -1,5 +1,5 @@
 
-const axios = require('axios');
+const axios = require('axios').default;
 
 
 export const VIDEO_GAMES = "VIDEO_GAMES";

@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L",
-    "test": "mocha -w ./tests/**/*.spec.js"
+    "start": "node index.js",
+    "devstart": "nodemon -L",
+    "test": "mocha -w ./tests/*/.spec.js"
   },
   "author": "Henry",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "cors": "^2.8.5",
     "cross-fetch": "^3.1.5",
     "dotenv": "^8.2.0",
+    "nodemon": "^2.0.20",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "node-fetch": "^3.2.10",
@@ -30,7 +32,7 @@
     "chai": "^4.2.0",
     "dotenv-webpack": "^2.0.0",
     "mocha": "^8.2.1",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.20",
     "supertest": "^6.0.1",
     "supertest-session": "^4.1.0"
   }
