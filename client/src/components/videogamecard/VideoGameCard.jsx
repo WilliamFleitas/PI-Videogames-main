@@ -15,6 +15,7 @@ export const VideoGameCard = ({name, image, genres, released, platforms, id, cre
              <h3 className={s.text}>{name}</h3>
               <h4 className={s.text}>Genres: {genres}</h4>
               <h5 className={s.text}>Rating: {rating}</h5>
+              
              </div>
               
             <div className={s.imageDiv }>

@@ -1,0 +1,38 @@
+.divContainer {
+    padding: 4vh;
+    margin: 4vh;
+    background-color: white;
+    display: block;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+.container {
+    
+    text-align: center;
+    align-items: center;
+    padding: 25px;
+    margin: 25px;
+    
+}
+.detail {
+    
+    padding: 46px;
+    margin: 45px;
+    position: relative;
+   left: 800px;
+   top: -225px;
+    
+}
+
+.imgDiv{ 
+    
+    padding: 2px 35px 2px 35px ;
+    margin: 2px 35px 2px 35px  ;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: -90px;
+
+}

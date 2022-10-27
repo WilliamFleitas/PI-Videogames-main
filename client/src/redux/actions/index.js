@@ -14,14 +14,22 @@ export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_DETAILS = "GET_DETAILS";
 export const DELETE_GAME = "DELETE_GAME";
 
-export const getVideogames = () => async (dispatch) => {
+export const getVideogames = () =>  (dispatch) => {
   try {
-    //http://localhost:3001/videogames
-    var call = await axios.get("/videogames");
-    return dispatch({
+ 
+     const call = fetch("http://localhost:3001/videogames").then(data => data.json()).then(response => dispatch({
       type: VIDEO_GAMES,
-      payload: call.data,
-    });
+      payload: response
+     }));
+     return call;
+     
+    
+    //http://localhost:3001/videogames
+    // const call = await axios.get("/videogames");
+    // return dispatch({
+    //   type: VIDEO_GAMES,
+    //   payload: call.data,
+    // });
   } catch (error) {
     
     return error;
@@ -31,7 +39,7 @@ export const getVideogames = () => async (dispatch) => {
 export const getDetail = (id) => async (dispatch) => {
       try {
         const response = await axios.get(`/videogames/${id}`);
-  
+        
          return dispatch({
           type: GET_DETAILS,
           payload: response.data,

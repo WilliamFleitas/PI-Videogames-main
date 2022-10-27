@@ -5,16 +5,19 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import Loading from "../loading/Loading"
 import s from "../gamedetail/gameDetail.module.css";
 const GameDetail = (props) => {
-
   const [carga, setCarga] = useState(true);
 
   const dispatch = useDispatch();
   const {id} = useParams();
   const detail = useSelector((state) => state.gameDetail);
   const history = useHistory();
+  
 
   useEffect(() => {
-    dispatch(getDetail(id)).then(() => setCarga(false));
+    dispatch(getDetail(id)).then(() => setCarga(false)).catch(() => {
+      alert("No se encontro el juego")
+      window.location.replace("http://localhost:3000/home")
+    });
   }, [dispatch, id]);
 
   const handleDelete = (event) => {
@@ -71,10 +74,11 @@ const GameDetail = (props) => {
           <div className={s.containerGenPlat}>
            
             <p>Generos: {detail.genres?.map((e) => e.name).join(", ")}</p>
+
             <p>
               Plataformas:{" "}
               {typeof detail.platforms === "object"
-                ? detail.platforms.map((e) => e.name)
+                ? detail.platforms.map((e) => e).join(", ")
                 : detail.platforms.split(",").join(", ")}
             </p>
           </div>
@@ -104,4 +108,6 @@ const GameDetail = (props) => {
     </div>
   );
 };
+
+
 export default GameDetail;
