@@ -2,7 +2,7 @@ const express = require("express");
 const { Videogame,} = require("../db");
 
 const router = express.Router();
-const { getGames, gameId, createGame, } = require("./controllers");
+const { getGames, createGame, gameId} = require("./controllers");
 
 router.get("/", async (req, res) => {
   try {
@@ -40,16 +40,18 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const {id} = req.params;  
-    
-    const response = await gameId(id);
-    const { name} = response;
+    const data= await gameId(id)
+    console.log(data)
    
-   if(name === undefined){
-    return res.status(400).send("no se encontro el juego")
-   }
-   return res.status(200).json(response);
+    if(!data || Object.keys(data).length === 0){
+      return res.status(400).send("No se encontro el juego")
+     }
+  
+   
+    res.status(200).json(data);
+   
   } catch (error) {
-    res.status(400).send(error)
+    res.status(404).send(error)
   }
 });
 
