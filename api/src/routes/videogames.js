@@ -41,7 +41,7 @@ router.get("/:id", async (req, res) => {
   try {
     const {id} = req.params;  
     const data= await gameId(id)
-    console.log(data)
+    
    
     if(!data || Object.keys(data).length === 0){
       return res.status(400).send("No se encontro el juego")
