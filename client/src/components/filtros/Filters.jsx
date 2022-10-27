@@ -29,7 +29,7 @@ return (
         <select className={s.options} onChange={(event) => handleFilterGenres(event)}>
           <option>Generos</option>
           {
-            allGenres?.map((g) => {
+            allGenres.map((g) => {
               return (
                 <option key={g.id} value={g.name} >{g.name}</option>
               )
