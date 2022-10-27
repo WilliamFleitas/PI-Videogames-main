@@ -96,6 +96,12 @@ const Home = (props) => {
           Crear un juego
         </NavLink>
       </div>
+
+      <div className={s.containerDetails}>
+        <NavLink className={s.detailButton} to={"/detail"}>
+          Detalles
+        </NavLink>
+      </div>
       
       <div className={s.containerRecarga}>
       <button

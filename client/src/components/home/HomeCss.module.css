@@ -49,10 +49,15 @@ body {
 .containerCrearJuego{
   
   justify-content: start;
-  margin: -25px 0rem 5px 0px ;
+  margin: -25px 70rem 5px 0px ;
   padding: 0px 0px 0px 0px;
 }
 
+.containerDetails {
+  justify-content: start;
+  margin: -22px 35rem 5px 0px ;
+  padding: 0px 0px 0px 0px;
+}
 .containerRecarga{
   justify-content: center;
   margin: 60px 0px 0px 0px ;

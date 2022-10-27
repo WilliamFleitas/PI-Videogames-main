@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/home" component={Home}/>
         <Route exact path="/creategame" component={GameCreate}/>
         <Route exact path="/videogames/:id" component={GameDetail}/>
-        <Route exact path="/about" component={About}/>
+        <Route exact path="/detail" component={About}/>
         <Route path="/*" component={NotFound}/>
       </Switch>
     </div>
