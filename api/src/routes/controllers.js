@@ -110,7 +110,7 @@ const gameId = async (id) => {
           },
         ],
       })
-       console.log("holaasdsad", responseDb)
+       
     
       
       const gameDbInfo = {
@@ -124,7 +124,7 @@ const gameId = async (id) => {
         createInDb: responseDb.dataValues.createdInDb,
       };
       
-      console.log("asdas", gameDbInfo)
+      
       return gameDbInfo;
     }
     
