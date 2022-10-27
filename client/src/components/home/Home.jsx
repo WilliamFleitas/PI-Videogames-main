@@ -15,7 +15,7 @@ const Home = (props) => {
 
   const allGames = useSelector((state) => state.listGames);
 
-  console.log(allGames);
+ 
 
   const [carga, setCarga] = useState(true);
   const [orden, setOrden] = useState("");
@@ -82,7 +82,7 @@ const Home = (props) => {
   return (
     <div className={s.homediv}>
       <div className={s.searchBarDiv}>
-        <SearchBar className={s.searchBar} />
+        <SearchBar className={s.searchBar} setCurrentPage={setCurrentPage}/>
       </div>
       
       <div className={s.containerButtonStart}>

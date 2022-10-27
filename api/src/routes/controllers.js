@@ -17,8 +17,6 @@ const getGames = async () => {
     const promise5 = fetch(URL + "&page=5").then((response) => response.json());
     await Promise.all([promise1, promise2, promise3, promise4, promise5]).then(
       (data) => {
-        data;
-        
         apiGamesInfo = data[0].results
           .concat(data[1].results)
           .concat(data[2].results)
@@ -72,54 +70,68 @@ const getGames = async () => {
 
 
 const gameId = async (id) => {
-  if (!isNaN(id)) {
-    const responseApi = await fetch(
-      `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-    )
-      .then((response) => response.json())
-      .then((data) => data);
 
-    
-    const gameApiInfo = {
-        image: responseApi.background_image,
-        name: responseApi.name,
-        genres: responseApi.genres,
-        description: responseApi.description,
-        released: responseApi.released,
-        rating: responseApi.rating,
-        platforms: responseApi.platforms.map((p) => p.platform.name).toString(),
-        
-      };
-      return gameApiInfo;
-  }
-  let responseDb = await Videogame.findByPk(id, {
-    include: [
-      {
-        model: Genre,
-        attributes: ["name"],
-        through: {
-          attributes: [],
-        },
-      },
-    ],
-  }) 
-    if(!responseDb){
-      return "no se encontro el juego";
-    
-  }
-  const gameDbInfo = {
-    background_image: responseDb.background_image,
-    name: responseDb.name,
-    genres: responseDb.genres,
-    description: responseDb.description,
-    released: responseDb.released,
-    rating: responseDb.rating,
-    platforms: responseDb.platforms,
-    createInDb: responseDb.createdInDb,
-  };
+  try {
+    if (!isNaN(id)) {
+      const responseApi = await fetch(
+        `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+      )
+        .then((response) => response.json())
+        .then((data) => data);
   
-  return gameDbInfo;
- 
+      
+      const gameApiInfo = {
+          image: responseApi.background_image,
+          name: responseApi.name,
+          genres: responseApi.genres,
+          description: responseApi.description,
+          released: responseApi.released,
+          rating: responseApi.rating,
+          platforms: responseApi.platforms.map((p) => p.platform.name).toString(),
+          
+        };
+        
+        return gameApiInfo;
+    }
+  } catch (error) {
+    return error;
+  }
+  
+  try {
+    if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id)){
+      const responseDb = await Videogame.findByPk(id, {
+        include: [
+          {
+            model: Genre,
+            attributes: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+      })
+       console.log("holaasdsad", responseDb)
+    
+      
+      const gameDbInfo = {
+        background_image: responseDb.dataValues.background_image,
+        name: responseDb.dataValues.name,
+        genres: responseDb.dataValues.genres,
+        description: responseDb.dataValues.description,
+        released: responseDb.dataValues.released,
+        rating: responseDb.dataValues.rating,
+        platforms: responseDb.dataValues.platforms,
+        createInDb: responseDb.dataValues.createdInDb,
+      };
+      
+      console.log("asdas", gameDbInfo)
+      return gameDbInfo;
+    }
+    
+  } catch (error) {
+    return error
+  }
+  
 };
 
 

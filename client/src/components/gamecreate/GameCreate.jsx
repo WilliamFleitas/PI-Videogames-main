@@ -19,9 +19,10 @@ const validate = (input) => {
         errors.name = "El nombre es demasiado largo";
       };
 
-
-      if(input.background_image.length !== 0 && !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.background_image)){
-        errors.background_image='invalid URL';
+// || !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.background_image)
+      if(!input.background_image.length || !/^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(input.background_image)
+      ){
+        errors.background_image='invalid URL, debe ser una imagen(png, jpg, gif)';
       };
 
 
@@ -85,7 +86,7 @@ const GameCreate = () => {
     }else {
         let error = Object.keys(validate(input));
 
-        if(error.length || !input.genres.length || !input.platforms.length){
+        if(error.length || !input.genres.length || !input.platforms.length ){
             alert("Falta completar datos")
             errors.genres = "falta completar datos";
             error.platforms = "falta completar datos";
@@ -120,10 +121,16 @@ const GameCreate = () => {
   };
 
   const handlePlatform = (event) => {
-    setInput({
-      ...input,
-      platforms: [...new Set([...input.platforms, event.target.value])],
-    });
+     
+     if(event.target.value === "all"){
+      return 
+     }
+      setInput({
+        ...input,
+        platforms: [...new Set([...input.platforms, event.target.value ])],
+      });
+    
+    
   };
 
   const handleDeletePlatform = (event) => {
