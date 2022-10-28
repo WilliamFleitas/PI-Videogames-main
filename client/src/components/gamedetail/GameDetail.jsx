@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connect } from "react-redux";
+
 import { getDetail, deleteGame } from "../../redux/actions";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import Loading from "../loading/Loading"
@@ -22,7 +23,8 @@ const GameDetail = (props) => {
 
   const handleDelete = (event) => {
     event.preventDefault();
-    dispatch(deleteGame(id));
+    // dispatch(deleteGame(id));
+    props.deleteGame(id)
     alert("Juego eliminado");
     history.push("/home");
   };
@@ -110,4 +112,16 @@ const GameDetail = (props) => {
 };
 
 
-export default GameDetail;
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteGame: id => dispatch(deleteGame(id)),
+    
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(GameDetail);
+
+// export default GameDetail;

@@ -32,11 +32,18 @@ const validate = (input) => {
         errors.description = 'La descripcion es muy larga. (Max = 800 caracteres)';
       };
 
+      
+      
+      
       if(!input.released){
         errors.released = 'Se requiere fecha de creación';
-    }else if (input.released.length < 10) {
+    }else if (input.released.length < 10 ) {
         errors.released = "Ingresar datos de released: yyyy-mm-dd";
-      };
+      }
+      if( input.released.length > 10 || !/^[0-9-]+$/.test(input.released)) {
+       errors.released = "Se requiere una fecha valida(yyyy-mm-dd)"
+     } 
+     
 
 
     if(!input.rating) {
@@ -85,7 +92,7 @@ const GameCreate = () => {
         errors.name = "Ya existe un juego con ese nombre";
     }else {
         let error = Object.keys(validate(input));
-
+//objet keys devuelve un array de streams partiendo de un objeto
         if(error.length || !input.genres.length || !input.platforms.length ){
             alert("Falta completar datos")
             errors.genres = "falta completar datos";

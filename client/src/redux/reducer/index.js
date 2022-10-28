@@ -106,7 +106,8 @@ function rootReducer(state = initialState, action) {
       
      return {
           ...state,
-            listGames: action.payload === "All" ? state.videogamesF: createdGame
+            listGames: action.payload === "All" ? state.videogamesF: createdGame,
+            videogamesF: action.payload === "All" ? state.videogamesF: createdGame
      };
 
      case ORDER_BY_NAME:

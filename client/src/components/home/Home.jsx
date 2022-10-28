@@ -68,8 +68,18 @@ const Home = (props) => {
  // handlefilter es el manejador despacha el target.value(el value viene de las options que son existente, creadoindb y all) que viene de nuestro select a nuestro action, esa action manda un type que va a ser el value como payload a nuestro reducer, el reducer recibe la action type y dependiendo del payload que le llega filtra los juegos
  //el setCurrenpage(1) esta para que al apretar el boton el paginado vuelva a la pag 1 siempre
   const handleFilterCreated = (event) => {
+    event.preventDefault();
+    if(event.target.value === "All"){
+      dispatch(getVideogames());
+      setCurrentPage(1);
+      setOrden(`Ordenado ${event.target.value}`);
+    }else {
+      
       dispatch(filterCreatedGame(event.target.value));
       setCurrentPage(1);
+      setOrden(`Ordenado ${event.target.value}`);
+    }
+      
   }; //handlefiltercreated es para el filtro de los juegos creados en db
   if(carga){
     return (
