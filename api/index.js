@@ -22,13 +22,13 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const  dotenv = require("dotenv");
 dotenv.config();
-const {DB_PORT} = process.env
+const {PORT} = process.env
 //aca corremos el server en el puerto 3001, el server nos viene de app.js que es donde hicimos la instancia de server = express()
 // esto solo corre nuestro servidor
 // Syncing all the models at once..
 //el conn syncroniza nuestra database con el servidor levantado
 conn.sync({ force: false }).then(() => {
-  server.listen(DB_PORT, () => {
+  server.listen(PORT, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
