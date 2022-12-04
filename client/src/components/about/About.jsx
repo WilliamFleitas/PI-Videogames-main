@@ -1,13 +1,28 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import  cyber from "../../imagenes/cyberimg.jpeg"
 import s from "./about.module.css";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-
+import { getVideogames } from "../../redux/actions";
+import Loading from "../loading/Loading";
 
 export const About = () => {
 
+   const dispatch = useDispatch();
+  const [carga, setCarga] = useState(true);
+  
+  useEffect(() => {
+    dispatch(getVideogames()).then(() =>setCarga(false));
+  }, [dispatch]);
 
 
+  if(carga){
+    return (
+      <div className={s.cargaDiv}>
+        <Loading/>
+      </div>
+    )
+  }
 
     return (
         <div className={s.divContainer}>

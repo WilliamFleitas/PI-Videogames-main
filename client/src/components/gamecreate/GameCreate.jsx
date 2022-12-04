@@ -7,6 +7,7 @@ import {
 } from "../../redux/actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import s from "../gamecreate/gameCreate.module.css"
+import Loading from "../loading/Loading";
 
 const validate = (input) => {
     let errors = {};
@@ -64,7 +65,7 @@ const GameCreate = () => {
             const allPlatforms = useSelector((state) => state.platforms);
             const nameList = useSelector((state) => state.listGames);
             
-
+            const [carga, setCarga] = useState(true);
             const [input, setInput] = useState({
                  name: "",
                  background_image: "",
@@ -79,7 +80,7 @@ const GameCreate = () => {
 
   useEffect(() => {
     // dispatch(getVideogames());
-    dispatch(getByGenres());
+    dispatch(getByGenres()).then(() =>setCarga(false));
     dispatch(getPlatform());
   }, [dispatch]);
 
@@ -160,6 +161,14 @@ const GameCreate = () => {
       genres: input.genres.filter((g) => g !== event),
     });
   };
+
+  if(carga){
+    return (
+      <div className={s.cargaDiv}>
+        <Loading/>
+      </div>
+    )
+  }
 
   return (
     <div className={s.containerPadre}>
