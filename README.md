@@ -41,6 +41,7 @@ About del proyecto:
 Dejo un video mostrando el proyecto: https://www.youtube.com/watch?v=YKk8-x2ZH2c&t=79s
 
 Para correr el proyecto localmente tenes que hacer lo siguiente:
+Clonar este repositorio.
 Instalar postgress y crear una base de datos llamada videogames.
 Registrarte en rawg para conseguir una apikey.
 Crear un archivo .env dentro de la carpeta Api con los siguientes campos:
